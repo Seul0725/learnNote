@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+	<style type="text/css">
+		header,footer,nav,aside,article,section,img,hgroup{
+			display: block;
+		}
+		img{
+			width: 250px;
+			height: 180px
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h3 id="top">我是顶部</h3>
+		<!-- 使用相对路径跳转并在新选项卡中打开，target值默认为_self且在当前选项卡打开 -->
+		<a href="../day01/2-element.html" target="_blank">跳转1</a>
+		<!-- 使用本地绝对路径跳转,在文件路径前面加file:/// -->
+		<a href="file:///C:\Users\PC-ASUS\Desktop\html_css\day01\2-element.html">跳转2</a>
+		<!-- 使用网络的绝对路径跳转 -->
+		<a href="https://www.baidu.com">百度一下</a>
+		<!-- 邮箱跳转，前提是本地安装了邮箱 -->
+		<a href="mailto:watermelon0811@163.com">发送邮箱</a>
+		<!-- 锚点跳转，跳转到相应的id值处,href是一个id -->
+		<a href="#top">回到顶部</a>
+		<hr />
+		<img src="./images/index.png" alt="这是图片" />
+	</header>
+	<hr />
+	<!-- border边框宽度,单位px -->
+	<!-- tr代表一行 td代表单元格，一行中的某一列 -->
+	<!-- 没有写tbody，浏览器默认会把tr加在tbody里 -->
+	<!-- cellpadding-设定内容与单元格之间的距离 -->
+	<!-- cellspacing-设定单元格与单元格之间的距离 -->
+	<!-- align-表格在文档中的对齐方式，有center,left,right -->
+	<!-- caption-表格的标题信息 -->
+	<!-- colspan-跨列数 rowspan-跨行数 -->
+	<!-- colgroup-定义一个表格中的列，放在caption后面，其他元素之前 -->
+	<table border="1px" align="center" cellspacing="0" cellpadding="0" width="200px" bgcolor="hotpink" />
+		<caption align="top">吃喝玩乐</caption>
+		<colgroup>
+			<col/>
+			<col span="2" style="background-color: yellow"  />
+		</colgroup>
+		<tr>
+			<th>美食</th>
+			<th>电影</th>
+			<th>游戏</th>
+		</tr>
+		<tr>
+			<td colspan="2">11</td>
+			<!-- <td>12</td> -->
+			<td rowspan="2">13</td>
+		</tr>
+		<tr>
+			<td>21</td>
+			<td>22</td>
+			<!-- <td>23</td> -->
+		</tr>
+	</table>
+	<article>
+		<section>
+			<figure>
+				<img src="./images/index.png">
+				<figcaption>这是图片1</figcaption>
+			</figure>
+		</section>
+	</article>
+	<details>
+		<summary>HTML</summary>
+		<dd>这是HTML的解释，全称为超文本语言，是Hyper Text Markup Language的缩写</dd>
+	</details>
+	<form action="./4-h5.html" method="get" enctype="application/x-www-form-urlencoded">
+		<input type="text" name="search">
+		<button>搜索</button>
+	</form>
+	<hr />
+	<form action="./4-h5.html">
+		<div>
+			<!-- label-标签，用于表单前加字，描述该表单 -->
+			<label>用户名</label>
+			<!-- placeholder 占位符 提示用户，但不提交 -->
+			<input type="text" name="username" placeholder="请输入用户名" />
+		</div>
+		<div>
+			<label>密码</label>
+			<input type="password" name="password" placeholder="请输入密码" />
+		</div>
+		<div>
+			<input type="submit" name="submit" value="登录" />
+			<input type="reset" name="reset" value="注销" />
+		</div>
+		<div>
+			<label>喜欢的美食：</label>
+			<input type="checkbox" name="favorite" value="fruits" />水果
+			<input type="checkbox" name="favorite" value="hotpot" />火锅
+		</div>
+		<div>
+			<label>性别：</label>
+			<input type="radio" name="gender" value="men" />男
+			<input type="radio" name="gender" value="women" />女
+		</div>
+		<div>
+			<input type="button" name="btn" value="普通按钮" style="background-color: teal;color: white">
+		</div>
+	</form>
+</body>
+</html>

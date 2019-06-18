@@ -1,0 +1,115 @@
+HTML
+	
+	html4
+	html5
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<!-- 字符编码 -->
+				<meta charset="utf-8" />
+				<title>选项卡名字</title>
+				<!-- css样式 -->
+				<style></style>
+				<!-- js脚本语言 -->
+				<script></script>
+			</head>
+			<body>
+				<p></p>
+				<div></div>
+				<h1></h1>
+					~
+				<h6></h6>
+				
+				<span></span>
+				<em></em><i></i>
+				<strong></strong><b></b>
+				<u></u>
+				<!-- reversed  reversed="" reversed="true"
+				reversed="false"
+				reversed="ddd"
+				 -->
+				<!-- html中的ol的type属性的取值 -->
+				<ol reversed type="disc">
+					<li></li>
+				</ol>
+				<ul>
+					<li></li>
+				</ul>
+				<dl>
+					<dt></dt>
+					<dd></dd>	
+				</dl>
+			</body>
+
+		</html>
+DIV+CSS布局
+	标签是可以嵌套的
+		<div>
+			<span></span>
+			<h1></h1>
+		</div>
+		
+		块级元素可以包含其他标签
+		行内元素中不可以放置块级元素
+		<span>
+			<div>jjj</div>
+		</span>
+
+		<ul>
+			<li>
+				<div>
+					<h1></h1>
+					<br />
+				</div>
+			</li>
+		</ul>
+
+
+	<div>
+		<img src="" alt="logo">
+	</div>
+	<div>
+		&copy;XXXX公司
+	</div>
+	
+	语义化标签
+	<header>
+		<img src="" alt="logo">
+	</header>
+	<article>
+		<section>
+			<h2>第一章</h2>
+			<p>
+				内容
+			</p>
+		</section>
+		<section>
+			<h2>第二章</h2>
+			<p>
+				内容
+			</p>
+		</section>
+
+	</article>
+	<footer>
+		&copy;XXXX公司
+	</footer>
+css代码
+header,footer,nav,article,section,aside,address{
+	//将元素展现为块级元素
+	display:block;
+}
+<div>
+	<header>
+		<div>
+			
+		</div>
+	</header>
+</div>
+
+
+
+
+
+
+

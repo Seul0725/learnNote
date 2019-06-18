@@ -1,0 +1,79 @@
+2019/6/13 学习html的第二天
+
+块级元素可以包含其他标签
+行内元素不可以放置块级元素
+
+●相对路径和绝对路径：
+	相对路径：相对于当前目录结构产生的路径
+	绝对路径：全路径
+●超链接：即进行跳转
+	1.<!-- 使用相对路径跳转并在新选项卡中打开，target值默认为_self时在当前选项卡打开 -->
+    <a href="../day01/2-element.html" target="_blank">跳转1</a>
+	2.<!-- 使用本地绝对路径跳转,在文件路径前面加file:/// -->
+    <a href="file:///C:\Users\PC-ASUS\Desktop\html_css\day01\2-element.html">跳转2</a>
+    3.<!-- 使用网络的绝对路径跳转 -->
+		<a href="https://www.baidu.com">百度一下</a>	
+	4.<!-- 邮箱跳转，前提是本地安装了邮箱 -->
+		<a href="mailto:watermelon0811@163.com">发送邮箱</a>
+	5.<!-- 锚点跳转，跳转到相应的id值处,href是一个id -->
+		<a href="#id值">回到顶部</a>
+●图片：
+		<!-- 行内元素不可设置宽高，设置无效，与其他元素共享一行。块级元素可设置宽高，独占一行。 img是一个特殊的元素即行内替换元素，行内显示，可设置宽高 -->
+	1.<!-- src是图片路径，可以是绝对路径也可以是相对路径，alt是图片加载不出来的提示信息 -->
+		<img src="./images/index.png" width="250px" height="180px" />
+●表格：
+	1.<!-- border边框宽度,单位px -->
+	2.<!-- tr代表一行 td代表单元格，一行中的某一列 -->
+	3.<!-- 没有写tbody，浏览器默认会把tr加在tbody里 -->
+	4.<!-- cellpadding-设定内容与单元格之间的距离 -->
+	5.<!-- cellspacing-设定单元格与单元格之间的距离 -->
+	6.<!-- align-表格在文档中的对齐方式，有center,left,right -->
+	7.<!-- caption-表格的标题信息 -->
+	8.<!-- colspan-跨列数 rowspan-跨行数 -->
+
+	9.<!-- colgroup-定义一个表格中的列，放在caption后面，其他元素之前,span属性表示跨列数 -->
+		<colgroup>
+			<!-- 第1列没做处理 -->
+			<col />
+			<!-- 接下来的3列当做同一列处理 -->
+			<col span="3" style="background-color: pink" />
+		</colgroup>
+
+●HTML新标签：
+	为了兼容性：section, article, aside, footer, header, nav, hgroup { display:block; } 	
+             /*块级显示，将其他元素转换为块级元素*/
+  1.article：代表文档，页面或应用程序中独立的，完整的，可以独自被外部引用的内容。相当于一篇文章。
+  2.section：相当于一篇文章的每一章节。
+
+  3.figure:figure元素是一种元素的组合，带有可选标题。标题放在figcaption中。
+  
+  4.details:可展开，默认open值为false，不展开内容，可设为true。summary是details中点击的对象，没有summary默认是 详细信息。
+
+
+●表单：
+	1.搜索表单：
+		<!-- action表单提交的地址 -->
+		<!-- 默认get:./4-h5.html?search=123&search1=234 -->
+		<!-- post:./4-h5.html post方式的参数在请求体 -->
+		<!-- multipart/form-data 文件上传控件 -->
+		<form action="./4-h5.html" method="get" enctype="application/x-www-form-urlencoded">
+			<input type="text" name="search">
+			<button>搜索</button>
+		</form>
+	2.登录表单：
+		<form action="./4-h5.html">
+			<div>
+				<!-- label-标签，用于表单前加字，描述该表单 -->
+				<label>用户名</label>
+				<!-- placeholder 占位符 提示用户，但不提交 -->
+				<input type="text" name="username" placeholder="请输入用户名" />
+			</div>
+			<div>
+				<label>密码</label>
+				<input type="password" name="password" placeholder="请输入密码" />
+			</div>
+			<div>
+				<input type="submit" name="" value="登录" />
+				<input type="reset" name="" value="注销" />
+			</div>
+		</form>
