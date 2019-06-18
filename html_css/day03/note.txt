@@ -1,0 +1,69 @@
+复习
+	a
+		href=""
+		取值：url/锚点(#id)/mailto:邮箱地址
+		target=""
+		取值 
+			_blank
+			新选项卡打开
+			_self(默认)  在当前选项卡打开
+	img
+		src=""
+			路径
+		alt=""
+			提示信息
+		width=""
+		height=""
+	table
+		caption
+		thead
+		tbody
+			tr
+				td/th
+
+		tfoot
+	table
+		border="1px"
+		cellpadding="0"
+		cellspacing="0"
+		align="center"
+	tr
+		align="center"
+	td
+		align="left"
+	caption  表的标题
+		align="bottom"
+
+	header
+		logo
+	footer
+		版权
+	nav
+		导航
+	article
+		文章
+	section
+		第一章及内容
+	address
+		地址
+	aside
+		侧边栏，广告
+
+	header,footer,nav,article,section,aside,address,img{
+		display:block;
+	}
+	form表单
+		form
+			input
+				type=""
+					text  单行文本输入框
+					password 密码框
+					submit  提交按钮
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>级联比较</title>
+	<!-- 内部和外部比较：谁在后显示谁的样式，就近原则 -->
+	<!-- <link rel="stylesheet" type="text/css" href="style/div.css">
+	<style type="text/css">
+		div{
+			/*珊瑚色*/
+			color: coral
+		}
+	</style> -->
+	<!-- 导入外部样式 -->
+	<style type="text/css">
+		<!-- 在style的第一行引入，放其他行无效果 -->
+		@import 'style/div.css';
+	</style>
+</head>
+<body>
+	<!-- 三种中，行内样式的优先级别最高 -->
+	<!-- <div style="color: cyan">猜猜我的文本颜色</div> -->
+	<div>猜猜我的文本颜色</div>
+</body>
+</html>

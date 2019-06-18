@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三天练习</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var ele = document.getElementById('download');
+			var show = document.getElementById('show');
+			setInterval(function(){
+				if(ele.value>=100){
+					return;
+				}else{
+					ele.value=ele.value+5;
+					show.innerHTML=ele.value+'%'
+				}
+			},2000);
+		}
+	</script>
+</head>
+<body>
+	<fieldset>
+		<legend>注册页面</legend> 
+		<form action="#" id="form">
+			<div>
+				<label>用户名:</label>
+				<input type="text" name="username" autofocus="">
+			</div>
+			<div>
+				<label>密码:</label>&nbsp;&nbsp;&nbsp;
+				<input type="password" name="password">
+			</div>
+			<div>
+				<label>性别：</label>
+				<input type="radio" name="gender" value="men" id="male">
+				<label for="male">男</label>
+				<input type="radio" name="gender" value="women" id="female">
+				<label for="female">女</label>
+			</div>
+			<div>
+				<label>爱好：</label>
+				<input type="checkbox" name="hobby" value="sing" id="singing">
+				<label for="singing">唱</label>
+				<input type="checkbox" name="hobby" value="dance" id="dancing">
+				<label for="dancing">跳舞</label>
+				<input type="checkbox" name="hobby" value="basketball" id="ball">
+				<label for="ball">篮球</label>
+			</div>
+			<div>
+				<label>籍贯：</label>
+				<select name="address">
+					<optgroup label="江西省">
+						<option value="nanchang">南昌</option>
+						<option value="shangrao">上饶</option>
+						<option value="yichun">宜春</option>
+					</optgroup>
+					<optgroup label="河南省">
+						<option value="zhengzhou">郑州</option>
+						<option value="shangqiu">商丘</option>
+						<option value="jiaozuo">焦作</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<label>个人简介：</label>
+				<textarea name="info" cols="20" rows="2"></textarea>
+			</div>
+			<div>
+				<label>头像文件：</label>
+				<input type="file" name="file">
+			</div>
+			<div>
+				<input type="hidden" name="id" value="007">
+				<input type="text" name="disabled" value="123" disabled="">
+				<input type="text" name="readonly" value="456" readonly="">
+			</div>
+			<div>
+				<label>进度条：</label>
+				<progress id="download" value="70" max="100"></progress>
+				<output id="show">70%</output>
+			</div>
+			<div>
+				<label>规定范围内的数量值：</label>
+				<!-- 绿色-没有optimum最佳值 -->
+				<meter value="40" min="0" low="40" high="60" max="100"></meter>
+				<!-- 黄色-没有optimum最佳值 -->
+				<meter value="20" min="0" low="40" high="60" max="100"></meter>
+				<meter value="70" min="0" low="40" high="60" max="100"></meter>
+				<!-- 红色 optimum小于low时给大于high的值，optimum大于high时给小于low的值 -->
+				<meter value="70" min="0" low="40" high="60" max="100" optimum="30"></meter>
+				<meter value="30" min="0" low="40" high="60" max="100" optimum="70"></meter>
+
+				<!-- 0<=value<=40绿色，40<value<=60黄色，60<value<=100红色 -->
+				<meter value="61" min="0" low="40" high="60" max="100" optimum="30"></meter>
+				<!-- 0<=value<40红色，40<=value<60黄色，60<=value<=100绿色 -->
+				<meter value="39" min="0" low="40" high="60" max="100" optimum="70"></meter>
+			</div>
+			<div>
+				<label>输入框的选项列表：</label>
+				<input type="text" name="datalist" list="datasource" autocomplete="off" />
+				<datalist id="datasource">
+					<option value="123"></option>
+					<option value="456"></option>
+				</datalist>
+			</div>
+			<div>
+				<label>年月日：</label>
+				<input type="date" name="date">
+				<label>日期时间：</label>
+				<input type="datetime-local" name="date-local">
+				<label>时间：</label>
+				<input type="time" name="time">
+				<label>年月：</label>
+				<input type="month" name="month">
+				<label>年周：</label>
+				<input type="week" name="week">
+			</div>
+			<div>
+				<label>数字：</label>
+				<input type="number" name="number">
+				<label>颜色：</label>
+				<input type="color" name="color">
+				<label>邮箱：</label>
+				<input type="email" name="email">
+				<label>url:</label>
+				<input type="url" name="url">
+				<label>电话：</label>
+				<!-- pattern 正则表达式的验证 -->
+				<input type="tel" name="telephone" pattern="(0,9){11}">
+				<label>搜索：</label>
+				<input type="search" name="search">
+			</div>
+			<div>
+				<label>滑块：</label>
+				<!-- step 步长 -->
+				<input type="range" name="range" min="0" max="100" value="50" step="2">
+			</div>
+			<div>
+				<input type="submit" value="提交" style="background-color: teal">
+				<input type="reset" value="重置" style="background-color: red">
+				<input type="image" src="../day02/images/index.png" width="50px" height="30px" alt="图片按钮" name="img">
+				<button style="background-color: teal">按钮</button>
+				<button type="submit" style="background-color: teal">按钮提交</button>
+				<button type="reset" style="background-color: red">按钮重置</button>
+				<button type="button">普通按钮</button>
+				<!-- formnovalidate提交表单时不被验证 -->
+				<button formaction="2-form.html" formnovalidate formtarget="_blank" formmethod="get">提交到其他地方</button>
+			</div>
+		</form>
+		<div>
+			<label>外部的input：</label>
+			<!-- required 必填项 -->
+			<input type="text" name="outinput" form="form" required>
+		</div>
+	</fieldset>
+</body>
+</html>

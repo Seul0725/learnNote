@@ -1,0 +1,70 @@
+2019/06/17 学习HTML第四天
+
+● 颜色：navy 深蓝色    teal 青色    aqua 浅绿色		cyan 蓝绿色   coral 珊瑚色
+● 边框的线条：solid实线		dashed虚线		dotted点状线
+● 隐藏元素：display:none;
+● 设置光标样式：cursor:pointer;手型		cursor:text;文本		cursor:help;问号	
+			   cursor:crosshair十字架	cursor:wait等待
+
+
+● CSS如何作用于HTML？？
+1.外部样式表：<link rel="stylesheet" href="style/index.css" /> href里面放CSS文件路径
+	导入外部样式：在@import后面跟CSS文件路径
+		<style type="text/css">
+		<!-- 在style的第一行引入，放其他行无效果 -->
+			@import 'style/div.css';
+		</style>
+2.内部样式表：<style>
+					div{
+						/*设置div内部文本大小和颜色*/
+						font-size: 40px;
+						color: navy
+					}
+			</style>
+3.行内样式表：<div style="color: #ffffff;background-color: teal">
+								行内样式表
+							</div>
+上述方法中，优先级别最高的是行内样式表，而外部样式和内部样式，谁距离body近就显示谁的样式，就近原则。
+
+● CSS工作原理：浏览器先加载HTML->再解析HTML->对HTML文件中引入的CSS进行加载->再对CSS进行解析->
+然后将HTML与CSS结合成DOM树->通过浏览器将DOM内容展示出来。
+
+● 选择器：
+1.标签选择器（元素选择器）：div{}
+2.id选择器：#id值{}
+3.类选择器：.class值{}
+4.普遍选择器：*{}，表示选中所有元素
+5.层次选择器：
+(1).后代选择器：div *{}表示div内的所以后代，包括子代和孙代以及孙代的孙代。
+(2).子代选择器：div>*表示div内所以的子代，而孙代不会被选中。
+(3).相邻兄弟选择器：div+*{}表示与div相邻的兄弟元素，唯一且是确定的。
+(4)一般兄弟选择器：div~*{}表示选中所有与div为兄弟的元素
+6.组合选择器：div,.class值,#id值{}，可以将多个选择器组合使用。
+7.嵌套选择器：div.class值{}表示选中div并且它的类名是相应的class值的。
+8.属性选择器：
+(1).[class]{}表示有class属性的被选中。
+(2).[class=one]{}表示选中class值为one的元素。
+(3).[class*=o]{}表示选中属性值中包含o字符串的元素。
+(4).[class^=o]{}表示属性值中以什么字符串开始的，这里以o开始。
+(5).[class$=o]{}表示表示属性值中以什么字符串结束的，这里以o结束。
+(6).[class~=one]{}此时假如某个标签的类属性值不止一个class="one two",则表示属性值中包含什么值的，此处是包含one的。
+									
+● <!-- 鼠标悬停选择内容时，将显示的元素放在触发的元素内部 -->
+	<div class="btn-div">
+		<button>显示菜单</button>
+		<div class="list-div">
+			<ul>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+				<li>React</li>
+			</ul>
+		</div>
+	</div>
+
+●	a标签的伪类选择器：
+1.去掉a标签的下划线：a{text-decoration:none;}
+2.a标签未访问的样式：a:link{}
+3.a标签访问后的样式：a:visited{}
+4.a标签悬停时的样式：a:hover{}
+5.a标签点击时的样式：a:active{}

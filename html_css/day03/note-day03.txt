@@ -1,0 +1,70 @@
+2019/06/14 学习HTML第三天
+
+注册页面：
+●label表单组件：label 用于表示某一表单组件的标题。
+		for 与为设定标题的表单组件的ID值一致。
+
+●filedset:用于在一个web表单中对多个控件和标签进行分组。fieldset的标题由<legend>标签提供。
+
+●input表单组件
+
+	input中常用的的布尔属性：autofocus:自动补全；autocomplete:自动补全；required:必填项；disabled:禁用，不提交数据；readonly:不可修改只读，提交数据；checked:默认选中。
+
+	1.text：单行文本框
+	2.password：密码框
+	3.radio：单选按钮，使用value来描述该组件提交的值。eg:性别选择，如果想设置点击男就能选择，可以使用label,在input里面增加id="male",然后label中for="male"。checked默认选中。
+	4.checkbox：复选框，用法和radio类似。
+	5.submit,reset:提交和重置按钮。
+	6.date:年月日；datetime-local:年月日+时间；time:时间；month：年月；week：年周。
+	7.数字：number；颜色color；邮箱：email；URL：url;电话：tel;搜索：search
+	8.滑块：range。 min="0" max="100" step="10" 其中step为步长。
+
+●select表单组件：表示下拉列表或列表
+
+	1.optgroup用于表示option的选项组，常包含在select中。
+	2.option用于表示选项，常包含在select，optgroup或者datalist中，disabled表示禁用，value用于提交给服务器，selected默认选中。
+	3.datalist:输入框的选项列表，其值通过option作为其子元素而存在。autocomplete="off"关闭自动补全。input里面有list属性，用来存放datalist的id值。
+
+● <!-- 可提交表单的按钮 -->
+		<input type="submit" value="提交" />
+		<input type="reset" value="重置">
+		<input type="image" src="../day02/images/index.png" width="50px" height="30px" alt="图片按钮">
+		<button>可提交</button>
+		<button type="submit">可提交</button>
+		<button type="reset">重置</button>
+		<button type="button">普通按钮不可提交</button>
+
+● <!-- 文件上传时要使用post,使用文件流进行提交 -->
+	<form action="#" enctype="multipart/form-data" method="post">
+		头像：<input type="file" name="file">
+			<button>提交</button>
+	</form>
+
+●texarea表单组件：用于表示多行文本框。
+	1.name:该组件的名字，用于提交给后台。
+	2.cols:文本框的列数。
+	3.rows:文本框的行数。
+
+●HTML5新增表单元素
+	1.progress:进度条，value为已完成的工作量，max为进度元素一共要完成的工作量。
+	2.output：用户动作产生的结果。
+	3.meter:规定范围内的数量值。
+		<!-- 绿色-没有optimum最佳值 -->
+		<meter value="40" min="0" low="40" high="60" max="100"></meter>
+		<!-- 黄色-没有optimum最佳值 -->
+		<meter value="20" min="0" low="40" high="60" max="100"></meter>
+		<meter value="70" min="0" low="40" high="60" max="100"></meter>
+		<!-- 红色 optimum小于low时给大于high的值，optimum大于high时给小于low的值 -->
+		<meter value="70" min="0" low="40" high="60" max="100" optimum="30"></meter>
+		<meter value="30" min="0" low="40" high="60" max="100" optimum="70"></meter>
+		<!-- 0<=value<=40绿色，40<value<=60黄色，60<value<=100红色 -->
+		<meter value="61" min="0" low="40" high="60" max="100" optimum="30"></meter>
+		<!-- 0<=value<40红色，40<=value<60黄色，60<=value<=100绿色 -->
+		<meter value="60" min="0" low="40" high="60" max="100" optimum="70"></meter>
+
+●外部的form表单信息
+	<form id="form">
+	<!-- formnovalidate提交表单时不被验证 -->
+	<button formaction="2-form.html" formtarget="_blank" formnovalidate>提交到其他地方</button>
+	</form>
+	外部的input:<input type="text" name="outinput" form="form" />

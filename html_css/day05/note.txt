@@ -1,0 +1,85 @@
+CSS
+	层叠样式表
+
+样式表：
+	选择器CSS代码块
+
+	.css文件
+	style
+CSS在HTML中使用的三种方式
+	1.外部样式表
+		test.css
+			css代码
+		使用：
+			<link rel="stylesheet" href="./style/test.css">
+			<style>
+				@import './style/test.css';
+			</style>
+
+	2.内部样式表的使用
+		<style>
+			css样式
+			div{
+				color:red;
+				border:1px solid red;
+			}
+		</style>
+	3.行内样式表中使用
+		<div style="color:red;border:1px solid red;"></div>
+
+	如果选择器一样的话，设置了不同样式的话，使用就近原则去判断谁生效。
+	<style>
+		div{
+			color:red;
+		}
+		div{
+			color:blue;
+		}
+	</style>
+	<div style="color:cyan"></div>
+CSS的选择器
+	普遍选择器 *
+	ID选择器  #id
+	类选择器  .class
+	标签选择器  div
+	组合选择器  div,span
+	嵌套选择器  div.one  
+						div .one
+	后代选择器
+		空格  后代
+		>    子代
+	兄弟选择器
+		+    下一个兄弟元素
+		~    之后所有的兄弟元素
+	属性选择器
+		[attr]  选择有某个属性的元素
+		[attr=val] 选中属性值等于val的
+		[attr^=val]  选中属性值以val开始的
+		[attr$=val] 选中属性值以val结束的
+		[attr*=val]  选中属性值中包含val字符串的
+		[attr~=val] 选中属性值中有一个值是val的
+			<div class="one two"></div>
+			<div class="onetwo"></div>
+			div[class~=one]   第一个
+			div[class*=one] 第一个 第二个
+
+块级元素和行内元素转换
+	块级元素，独占一行，可设置宽高
+	行内元素，与其他元素共享一行，不可设置宽高
+	display:inline-block;
+		将其他元素转换成行内显示，同时可设置宽高的元素
+	display:inline;
+		将其他元素转换成行内元素。
+	display:block;
+		将其他元素转换成块级元素。
+
+
+
+
+
+
+
+
+
+
+

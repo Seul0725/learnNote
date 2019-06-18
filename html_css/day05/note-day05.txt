@@ -1,0 +1,65 @@
+2019/06/18 学习HTML的第五天
+
+
+● 表格边框合并：border-collapse:collapse;
+
+● 盒子阴影：box-shadow:3px 3px 3px #ccc;水平方向x偏移 垂直方向y偏移 阴影的模糊距离 阴影颜色
+
+● outline：（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围
+
+
+● CSS级联规则：
+	特性值：
+	1.在元素的style属性中		1000
+	2.在ID选择器中		100
+	3.在类选择器、属性选择器、伪类选择器中 10
+	4.在标签(元素)选择器、伪元素选择器中	1
+	5.空格 > + ~			0
+	特别的，使用!important修饰的最优先，使用方式：color: red !important;
+	如果特性值一样，就按就近原则去判断。
+
+
+● 伪类选择器：
+
+(1).表示子元素的：
+	1.div>*:first-child{}，选中每个div的第一个孩子
+	2.div>*:last-child{}，选中每个div的最后一个孩子
+	3.div>*:nth-child(2){}，选中每个div的第二个孩子，其中()可以放数字，表达式，以及特殊字符(odd奇数even偶数)
+	4.div>*:nth-last-child(2){}，选中每个div倒数第二个孩子
+
+	5.div>*:first-of-type{}，每种类型(元素类型)中的第一个孩子
+	6.div>*:last-of-type{}，每种类型(元素类型)中的最后一个孩子
+	7.div>*:nth-of-type(2){}，每种类型中的第二个孩子
+	8.div>*:nth-of-type(2){}，每种类型中的倒数第二个孩子
+
+	9.div>*only-child{}，选中div中的独身子元素
+
+(2).跟元素状态相关的：
+	1.:link未访问时，:visited访问后的，:hover鼠标悬停时，:active鼠标点击时，这四个一般与a标签连用。
+	2.input[type=text]:focus{}，聚焦状态。
+	3.input:disabled{}禁用的，一般会在标签中设置disabled属性。
+	4.input:enabled{}可用的
+	5.input[type=radio]:default{}，默认选中的，一般在标签中设置checked属性。
+	6.input[type=radio]:checked{}，用户选中的
+	7.input:valid{}通过验证的
+	8.input:invalid{}不通过验证的
+	9.input:required{}选中项
+	10.input:optional{}选填项
+	11.input[type=number]:in-range{}在范围内时
+	12.input[type=number]:out-of-range{}在范围外时
+
+● 伪元素选择器：内容放在content里面
+	1.::before，在之前添加内容，如section p::before{content:'*';color:red;}内容放在content里面。
+	2.::after，在之后添加内容，如section p::after{}
+	3.::first-letter，选中第一个字符，div::first-letter{}
+	4.::first-line，选中第一行文本，div::first-line{}
+	5.::selection，用户选中文本的设置,div::selection{}
+
+● HTML属性继承：
+	1.不可继承的属性：display,border,background,margin,padding,height,width等。
+	2.可继承的属性：font系统属性,color,cursor,text系列属性,list系列属性等。
+	3.attr:initial;将可继承的属性设置成不可继承的。
+	4.attr:inherit;将不可继承的属性设置成可继承的。
+	5.attr:unset;可继承属性继承，不可继承属性不继承。
+
+

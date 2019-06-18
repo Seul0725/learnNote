@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>行内和块级的相互装换</title>
+	<style>
+		body>*{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		/*将div转换成行内元素*/
+		div{
+			display: inline-block;
+		}
+		span{
+			/*将span转换成块级元素*/
+			/*display: block;*/
+			/*将span装换成行内显示，同时可设置宽高*/
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div>one</div>
+	<div>two</div>
+	<div>three</div>
+	<span>span-one</span>
+	<span>span-two</span>
+	<span>spam-three</span>
+</body>
+</html>

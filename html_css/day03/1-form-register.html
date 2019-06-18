@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+</head>
+<body>
+	<form action="#">
+		<!-- autofocus自动聚焦，checked单选和复选的默认选中 -->
+		用户名：<input type="text" name="username" autofocus />
+		<br />
+		密码：<input type="password" name="password">
+		<br />
+		<!-- value值 -->
+		<!-- 同一组单选按钮的name值保持一致，会有互斥现象 -->
+		<!-- 表单提交数据，实际上提交的是表单控件的value值 -->
+		性别：<input type="radio" name="gender" value="men" id="male" checked />
+		<!-- 点击label时点击某个表单控件 -->
+		<label for="male">男</label>
+		<input type="radio" name="gender" value="women" id="female" />
+		<label for="female">女</label>
+		<br />
+		爱好：<input type="checkbox" name="hobby" value="basketball" checked />篮球	
+		<input type="checkbox" name="hobby" value="jump" checked />跳	
+		<input type="checkbox" name="hobby" value="rap" />rap	
+		<br />
+		籍贯：
+		<!-- <select multiple size="2" name="address"> -->
+		<select name="address">
+			<option value="">请选择</option>
+			<option value="shanghai">上海</option>
+			<!-- disabled禁用 -->
+			<option value="beijing" disabled>北京</option>
+			<!-- selected和checked类似，但用于option默认选中 -->
+			<option value="jiangsu" selected>江苏</option>
+			<option value="jiangxi">江西</option>
+		</select>
+		<br />
+		个人简介：
+		<textarea name="info" cols="30" rows="10"></textarea>
+		<br />
+		头像：<input type="file" name="file">
+		<br />
+		<input type="submit" value="提交" />
+		<input type="reset" value="重置">
+		<!-- 可提交表单 -->
+		<input type="image" src="../day02/images/index.png" width="50px" height="30px" alt="图片按钮">
+		<button>可提交</button>
+		<button type="submit">可提交</button>
+		<button type="reset">重置</button>
+		<button type="button">普通按钮不可提交</button>
+		<br />
+	</form>
+	<hr />
+	<!-- 文件上传时要使用post,使用文件流进行提交 -->
+	<form action="#" enctype="multipart/form-data" method="post">
+		头像：<input type="file" name="file">
+			<button>提交</button>
+	</form>
+	<form action="#">
+		<!-- disabled禁用，不提交数据  readonly不可修改只读，提交数据 -->
+		<input type="text" name="id" value="1001" disabled />
+		<input type="text" name="hello" value="1002" readonly />
+		<!-- 将id显示在type="hidden" -->
+		<input type="hidden" name="hidden" value="123" />
+		<button>提交</button>
+	</form>
+</body>
+</html>
