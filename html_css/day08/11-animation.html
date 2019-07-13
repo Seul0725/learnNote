@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画-animation</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			/*使用动画*/
+			animation-name: myani;
+			/*动画时长 默认0s*/
+			animation-duration: 2s;
+			/*动画次数*/
+			animation-iteration-count: 2;
+			/*无限次*/
+			/*animation-iteration-count: infinite;*/
+			/*动画的执行顺序 默认从第一帧到最后一帧*/
+			/*animation-direction: normal;*/
+			/*每次都是从最后一帧到第一帧*/
+			/*animation-direction: reverse;*/
+			/*奇数次执行，从第一帧到最后一帧
+				偶数次执行，从最后一帧到第一帧*/
+			animation-direction: alternate;
+			/*奇数次执行，从最后一帧到第一帧
+				偶数次执行，从第一帧到最后一帧*/
+			/*animation-direction: alternate-reverse;*/
+			/*动画的延迟执行*/
+			animation-delay: 2s;
+			/*填充模式*/
+			/*在动画等待时间内，将准备播放的帧的动画填充到元素上*/
+			animation-fill-mode: backwards;
+			/*在动画结束时，使用结束的帧填充元素，默认不填充最后一帧*/
+			/*animation-fill-mode: forwards;*/
+			/*动画在执行中变化的速率*/
+			/*animation-timing-function: ease;*/
+			/*animation-timing-function: ease-in;*/
+			/*animation-timing-function: ease-out;*/
+			/*animation-timing-function: ease-in-out;*/
+			/*animation-timing-function: linear;*/
+		}
+		div:hover{
+			/*停止动画*/
+			/*动画播放状态控制*/
+			animation-play-state: running;
+			/*暂停动画*/
+			animation-play-state: paused;
+		}
+		/*声明动画 myani是动画的名字*/
+		@keyframes myani{
+			from{
+				width: 100px;
+				background-color: cyan;
+			}
+			/*50%{
+				width: 200px;
+			}*/
+			to{
+				width: 300px;
+				background-color: coral;
+			}
+			/*0%{
+
+			}
+			100%{
+
+			}*/
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

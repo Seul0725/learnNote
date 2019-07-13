@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>relative相对定位</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		.one{
+			background-color: cyan;
+		}
+		.two{
+			background-color: coral;
+			/*相对于原先位置定位*/
+			position: relative;
+			/*如果没有设置left和top，位置不变*/
+			left: 10px;
+			top: 10px;
+		}
+		.three{
+			background-color: navy;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>省略号</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			/*内部文本不换行，默认是换行的*/
+			white-space: nowrap;
+			/*溢出内容隐藏*/
+			overflow: hidden;
+			/*省略号*/
+			text-overflow: ellipsis;
+			/*默认*/
+			/*text-overflow: clip;*/
+		}
+	</style>
+</head>
+<body>
+	<div>
+	盒子模型 
+		W3C盒子
+			width height 内容区
+
+		IE盒子 
+			width height 盒子区
+
+		box-sizing:content-box;
+		box-sizing:border-box;
+
+	浮动 脱离文档流。飘在上层
+		float:left/right;
+		清除浮动：
+			兄弟元素之间清除浮动产生的影响：clear:both;
+			父子元素之间清除浮动产生的影响：overflow:hidden;
+	</div>
+</body>
+</html>

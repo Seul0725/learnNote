@@ -1,0 +1,88 @@
+overflow溢出处理
+	auto  根据情况产生滚动条
+	scroll  一直产生滚动条
+	hidden  超出内容隐藏
+	{
+		overflow-x: auto;
+		overflow-y: auto;
+		overflow: auto;
+	}
+盒子模型
+	w3c
+		设置width和height是内容区的
+		盒子的宽高：内容区+padding区+border区
+		所占屏幕空间的宽高：盒子的宽高+margin区
+		内容区的宽高：width和height
+	ie盒子
+		设置width和height是盒子的宽高
+		盒子的宽高：width和height
+		所占屏幕空间的宽高：盒子的宽高+margin区
+		内容区的宽高：width和height-border区-padding区
+	转换
+		box-sizing:content-box;  //w3c
+		box-sizing:border-box;  //ie
+	padding/margin
+		4个值  上  右  下 左
+		3个值  上  左右  下
+		2个值  上下  左右
+		一个值 上下左右
+浮动
+	脱离文档流，飘在上层
+	float:left/right;
+	清除浮动：
+		兄弟元素之间清除浮动产生的影响：clear:both
+		父子元素之间清除浮动产生的影响：overflow:hidden;(父元素上的)
+border属性
+	border-radius:50%;
+
+background属性
+	{
+		background-color: red;
+		background-image: url(./);
+		background-size: 100%100%;
+		background-repeat: no-repeat;
+	}
+
+定位  position属性
+	1.静态定位
+		position:static;
+		默认文档流的位置
+	2.相对定位
+		position:relative;
+		相对于原来的位置进行定位。
+		原先位置保留，不脱离文档流
+	3.绝对定位
+		position:absolute;
+		如果有定位的祖先元素，相对于离它最近的定位的祖先元素定位
+		如果没有定位的祖先元素，相对于视口区的左上角定位
+		原先位置不保留，脱离文档流
+	4.固定定位
+		position:fixed;
+		固定在浏览器(视口区)的某个位置上
+		原先位置不保留，脱离文档流
+	定位元素：使用相对定位，绝对定位，固定定位，定位的元素
+	定位元素才可以使用以下属性：left,right,top,bottom
+	
+	z-index 层叠顺序
+		值越大离眼睛越近 0【默认】 -100 1000
+		绝对定位元素，层叠顺序
+
+	浮动、定位块级元素，不再独占一行，需要自己设置
+
+
+	盒子、浮动、定位、flex
+
+动画
+	一帧一帧的东西组成一个动画序列
+	先声明动画序列，再使用
+	声明：
+
+
+
+-webkit-   谷歌浏览器和safari浏览器
+-moz-      火狐浏览器
+-ms-       IE浏览器
+-o-  			 欧朋浏览器
+
+
+

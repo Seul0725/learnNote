@@ -1,0 +1,193 @@
+2019/06/21 学习HTML的第八天(The Last Day)
+
+● white-space:wrap;文本不会换行，文本会在在同一行上继续
+
+
+省略号 用户文本溢出边框时产生省略号
+	div{
+	<!-- 第一步，给div设置宽高以及边框 -->
+	width:100px;
+	height:100px;
+	border:1px solid red;
+	<!-- 第二步，内部文本不换行，默认是换行的 -->
+	white-space:nowrap;
+	<!-- 第三步，将溢出内容隐藏 -->
+	overflow:hidden;  overflow:visible;让隐藏的内容显示
+	<!-- 第四步，将隐藏的内容变成省略号 -->
+	text-overflow:ellipsis;
+	<!-- 默认的是clip,把隐藏的部分切掉 -->
+}
+
+
+定位 position
+	1.静态定位 position:static; 默认的文档流的位置
+	2.相对定位 position:relative; 相对于原来的位置进行定位
+		原先位置保留，不脱离文档流
+	3.绝对定位 position:absolute;
+		如果有定位的祖先元素，相对于离它最近的祖先元素定位
+		有祖先定位元素的绝对定位：为绝对定位元素的父元素设定"position:relative"可
+以将这个父元素变为当前绝对定位元素的父元素。
+		如果没有定位的祖先元素，则相对于视口区的左上角定位
+		原先位置不保留，脱离文档流
+	4.固定定位 position:fixed;
+		定在浏览器（视口区）的某个位置上
+		原先位置不保留，脱离文档流
+	定位元素：使用相对定位、绝对定位、固定定位，定位的元素
+	定位元素才可以使用以下属性：left right top bottom
+	
+z-index 当两个绝对定位元素叠加在一起的时候，可以使用“z-index”来改变两个绝对定位元素出现
+的顺序（ z-index 取值无需指定单位，值大的显示在上方。 ）
+
+
+flex布局 也叫弹性盒布局-伸缩盒布局
+	1.flex-direction: row; 默认的，列布局
+	flex-direction: column; 行布局
+	flex-direction: row-reverse; 列布局的反转
+	flex-direction: column-reverse; 行布局的反转
+	2.主轴对齐方式
+		justify-content: flex-start; 默认的 从主轴的起点对齐
+		justify-content: flex-end; 主轴的终点对齐
+		justify-content: center; 项目在主轴上居中对齐
+		justify-content: space-between; 项目在主轴上，项目与项目之间有空间
+		justify-content: space-around; 项目四周有空间
+	3.交叉轴上的对齐方式
+		align-items: flex-start; 默认 交叉轴的起点对齐
+		align-items: flex-end; 交叉轴的终点对齐
+		align-items: center; 垂直居中
+		align-items: stretch; 如果项目没有设置高度将会占满整个容器的高度，默认的对齐方式
+		align-items: baseline; 基准线对齐 项目内部的文本对齐
+	4.换行 flex-wrap: wrap; 
+		项目多了一个主轴放不下，可以换行显示
+		flex-flow: flex-direction flex-wrap
+		flex-flow: row wrap;
+	5.多主轴在交叉轴上的对齐方式      如果只有一根主轴，该属性不起作用
+		align-content: flex-start;
+		align-content: flex-end;
+		align-content: center;
+		align-content: space-around;
+		align-content: space-between;
+		align-content: stretch;
+
+	6.等比例划分 flex: 1;占一份
+	7.至小占据主轴上的空间 flex-basis: 200px;
+		flex: 200px 1;表示先分200px,再和其他的进行等比例划分
+
+属性值的计算calc
+	例：如果左边div的宽要固定，而右边div要占满屏幕，可以设置左边的div的width:200px;右边的宽就是calc(100%-200px);
+
+
+CSS动画-animation
+	1.先声明动画，也可以用0%到100%，其中myani是动画的名字
+		@keyframes myani{
+			from{
+				width: 100px;
+				background-color: cyan;
+			}
+			/*50%{
+				width: 200px;
+			}*/
+			to{
+				width: 300px;
+				background-color: coral;
+			}
+		}
+	2.在相应的div中配置动画
+		animation-name: myani; 使用@keyframes中声明的动画
+		animation-duration: 2s; 动画的持续时间 默认是0s
+		animation-delay: 2s; 动画的延迟执行 默认是0s
+		animation-iteration-count: 2; 动画重复次数 infinite;无限次
+
+		animation-direction: normal; 动画的执行顺序 默认从第一帧到最后一帧
+		animation-direction: reverse; 每次都是从最后一帧到第一帧
+		animation-direction: alternate; 奇数次执行，从第一帧到最后一帧 偶数次执行，从最后一帧到第一帧
+		animation-direction: alternate-reverse; 奇数次执行，从最后一帧到第一帧 偶数次执行，从第一帧到最后一帧
+		
+		填充模式 
+			animation-fill-mode: backwards; 在动画等待时间内，将准备播放的帧的动画填充到元素上
+			animation-fill-mode: forwards; 当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。
+
+		动画在执行中变化的速率
+			animation-timing-function: ease; 默认值
+			animation-timing-function: ease-in; 先慢后快
+			animation-timing-function: ease-out; 先快后慢
+			animation-timing-function: ease-in-out; 先慢再快后慢
+			animation-timing-function: linear; 线性增长
+
+		动画播放状态控制
+			animation-play-state: running; 运行状态
+			animation-play-state: paused; 暂停动画
+
+动画过渡 transition
+	transition: width 2s linear 1s,background 2s linear 1s;
+	分别表示过渡属性，持续时间，速度曲线，过渡延迟
+	如果控制多个属性过渡用all transition: all 2s linear 1s;
+
+动画变形 transform
+	1.transform-origin 变形的原点的位置，默认值为50% 50% 0
+		transform-origin: left top; transform-origin: 20px 20px;
+	2.旋转 rotate
+		transform: rotateX(0deg);
+		transform: rotateY(0deg);
+		transform: rotateZ(0deg);  rotate();与Z一致
+
+	3.倾斜 skew
+		transform: skewX(0deg);
+		transform: skewY(0deg);
+		transform: skew(0deg,0deg);
+	4.缩放 scale
+		transform: scale(1); 
+		transform: scale(0.5);
+		等比例缩放
+	5.移动 translate 
+		transform: translate(0,0);
+		transform: translate(100px,200px);
+
+媒体查询
+	style{
+		/* 
+			<768    超小屏
+			768-992  小屏
+			992-1200 中屏
+			>1200    大屏
+		 */
+		@media screen and (min-width: 1200px) {
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+		}
+		/*992-1200 中屏*/
+		@media screen and (min-width: 992px) and (max-width: 1200px) {
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: green;
+			}
+		}
+		/*768-992*/
+		@media screen and (min-width: 768px) and (max-width: 992px) {
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: coral;
+			}
+		}
+		/*<768*/
+		@media screen and (max-width: 768px) {
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
