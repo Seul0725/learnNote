@@ -1,0 +1,70 @@
+2019/06/20 学习HTML的第七天
+
+
+溢出的处理：overflow
+	1.overflow: hidden; 溢出内容隐藏
+	2.overflow: auto; 给父容器加宽高 如果有溢出就产生滚动条，如果没有溢出就不产生滚动条
+	3.overflow: scroll; 无论有没有溢出，都产生滚动条
+
+W3C盒子：默认的盒子模型-标准的盒子模型
+	1.padding 内间距
+		(1).一个值：4个方向的上下左右
+			padding:100px;
+		(2).两个值：上下 左右
+			padding:10px 20px;
+		(3).三个值：上 左右 下
+			padding:10px 20px 30px;
+		(4).四个值：上 右 下 左 顺时针
+			padding: 10px 20px 30px 40px;
+		盒子的宽 width+左右padding+左右border
+		盒子的高 height+上下padding+上下border
+	2.margin 外边距 同padding
+		所占屏幕的宽 盒子的宽+左右margin
+		所占屏幕的高 盒子的高+上下margin
+
+IE盒子：IE盒子模型中设置的宽高就是盒子的宽高
+	1.内容区宽：width-左右border-左右padding
+	2.内容区高：width-上下border-上下padding
+	3.所占屏幕空间宽：width+左右margin
+	4.所占屏幕空间高：width+上下margin
+
+盒子类型：box-sizing
+	1.box-sizing: content-box; W3C盒子模型
+	2.box-sizing: border-box; IE盒子模型
+
+盒子边框：border
+	1.border-radius 设置圆角半径 一般设置50%
+	2.border-top-left-radius: 40px; 设置左上角的边框
+
+盒子背景样式：background
+	1.background-image：背景图片 background-image: url(images/bg.jpg);
+	2.图片重复的方式：background-repeat
+		(1).background-repeat: no-repeat;不重复
+		(2).background-repeat: repeat-x;在x方向铺满一行
+		(3).background-repeat: repeat-y;在y方向铺满一列
+		(4).background-repeat: repeat;默认的，铺满
+	2.设置背景图片的大小 宽 高：background-size: 100% 100%; background-size: 200px 200px;
+	3.图片精灵技术：spirites 
+		div{
+			width: 153px;
+			height: 130px;
+			background-image: url(images/sprites.jpg);	
+		}
+		.one{
+			/*设置背景图片的位置*/
+			background-position: -113px -130px;
+		}
+		.two{
+			background-position: -633px -662px;
+		}
+	4.背景图片绑定的位置
+		(1).background-attachment: fixed; 固定背景，不随滚动条的滚动而滚动
+		(2).background-attachment: scroll; 默认，随着滚动条滚动
+
+
+浮动布局：float
+	1.float:left; 左浮动 浮动元素脱离文档流，原先位置不保留
+	2.float:right; 右浮动
+	3.clear: both; 清除浮动 清除兄弟元素的浮动影响
+	4.overflow:hidden; 清除浮动，清除浮动 清除子元素的浮动对父元素产生的影响
+

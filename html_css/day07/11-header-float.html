@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>header</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0
+		}
+		header,img{
+			display: block;
+		}
+		header{
+			/*height: 60px;*/
+			background-color: teal;
+			color: #fff;
+			padding: 0 10px;
+			/*清除浮动 清除子元素的浮动对父元素产生的影响*/
+			overflow: hidden;
+		}
+		.logo{
+			float: left;
+		}
+		.logo img,.logo span{
+			float: left;
+		}
+		.logo img{
+			width: 80px;
+			height: 60px;
+		}
+		.logo span{
+			line-height: 60px;
+			margin-left: 10px;
+			font-size: 20px;
+			font-family: 华文琥珀;
+		}
+		.user{
+			float: right;
+		}
+		.user img,.user span{
+			float: left;
+		}
+		.user img{
+			margin-top: 10px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%
+		}
+		.user span{
+			line-height: 60px;
+			margin-left: 10px;
+		}
+		
+		article{
+			background-color: coral;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img  src="images/西瓜.png" alt="">
+			<span>管理系统</span>
+		</div>
+		<div class="user">
+			<img  src="images/timg.jpg" alt="">
+			<span>admin</span>
+		</div>
+	</header>
+	<article>
+		内容
+	</article>
+</body>
+</html>
