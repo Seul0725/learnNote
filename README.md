@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to Seul's GitHub
 
 You can use the [editor on GitHub](https://github.com/Seul0725/learnNote/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
