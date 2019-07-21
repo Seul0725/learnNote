@@ -1,0 +1,77 @@
+1.变量声明提升在前？
+2.函数声明提升在前：函数声明提升到最顶部，同名变量声明提升被忽略。
+
+
+console.log(test);
+function test(){}
+var test = 1;
+	
+-------------------------
+对象
+	创建对象
+		new Object()
+		{}
+	访问属性
+	遍历对象
+		for(var key in obj){
+			key->属性名
+			obj[key]->属性值
+		}
+	删除属性
+		delete obj.name;
+	新增属性
+		obj.age = 12;
+	修改属性
+		obj.age = 20;
+
+	判断是否是自有属性和继承属性 "name" in obj
+	判断是否是自有属性 obj.hasOwnProperty("name")
+	判断是否自有属性，且是可枚举的 obj.propertyIsEnumerable("name")
+	判断是否是继承属性 先in，再hasOwnProperty()
+
+	Object原型中的属性和方法
+		constructor()
+	
+	构造函数和原型和实例的关系
+		每一个构造函数都有一个原型对象
+		Object.prototype.constructor === Object;
+		实例是通过构造函数创建出来的，实例可以调用构造它的构造函数中的原型对象中的属性和方法
+		object.toString === Object.prototype.toString
+		Object.prototype.isPrototypeOf(obj)
+
+
+
+函数
+	创建方式
+		function test(){}
+		var test = function(){}
+	属性
+		arguments 类数组对象，用来保存实参
+			arguments.length 实参的个数
+			arguments.callee 函数本身
+		this 函数执行的环境变量
+			纯粹的函数调用 
+				nodejs环境 this->global变量
+				浏览器 this->window对象
+			作为方法被调用
+				this->上一级对象
+
+----------------------------
+函数调用方式
+	test(参数1,参数2) global对象
+	test.call(this,参数1,参数2)
+		参数列表方式传参	
+	test.apply(this,参数数组);
+	test.bind(this)(参数列表);
+		bind方法可以更改this指向，返回的是一个函数，需要后面加()去执行
+		test.bind(this,参数列表)()
+
+
+
+
+
+
+
+
+
+
