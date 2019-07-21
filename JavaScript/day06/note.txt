@@ -1,0 +1,42 @@
+数组Array
+	声明数组
+		1.构造函数方式
+			var arr = new Array();
+			var arr = new Array(20);
+			var arr = new Array("hello");
+		2.使用字面量
+			var arr = [];
+	访问数组的元素
+		通过下标或者索引去访问数组中的元素
+		[1,2,3][0]; //1
+
+	length属性
+		数组元素的个数
+			[1,2,3,4].length//4
+	
+方法
+	栈方法
+		pop() 取最后一项，返回取出的元素
+		push() 追加到末尾，返回新数组的长度
+	队列方法
+		shift() 取第一项，返回取出的元素
+		unshift() 追加到头部，返回新数组的长度
+	都是改变了原数组长度
+
+	排序方法
+		reverse() 反转
+		sort() 排序//升序
+			sort(function(a,b){
+				return a-b;
+			})
+
+
+
+
+
+
+
+
+
+
+
