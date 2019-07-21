@@ -1,0 +1,52 @@
+Object属性特性
+	对象属性的特性
+		configurable delete删除，能否被重定义
+		enumerable
+		writable
+		value
+	获取属性的特性
+		Object.getOwnPropertyDescriptor(obj,'name');
+		Object.defineProperty(obj,'name',{});
+		Object.defineProperties(obj,{
+			name:{},
+			age:{}
+		});
+	属性：数据属性 访问器属性
+	Object.defineProperty(obj,'weight',{
+		get:function(){
+			return this._weight;
+		},
+		set:function(param){
+			this._weight=param;
+		},
+		enumerable:true;
+	});
+
+正则表达式
+	JS中正则表达式的使用
+		创建正则表达式对象
+			1.构造函数
+			2.字面量
+		使用
+			1.正则表达式对象的属性和方法
+				pattern.global g
+				pattern.ignoreCase
+				pattern.multiline
+				pattern.source
+				pattern.lastIndex
+				pattern.test(src)
+				pattern.exec(src);
+			2.String对正则表达式的支持
+				str.search(pattern) 索引位置/-1
+				str.match(pattern) 有g,有返回数组，没有返回null/无g->exec
+				str.replace(pattern,'js');
+				str.split('&');(/&/)
+	正则表达式
+		模式次数
+
+
+
+
+
+
+
