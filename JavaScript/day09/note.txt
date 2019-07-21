@@ -1,0 +1,96 @@
+正则表达式
+	/正则表达式语法/img
+	模式次数
+	模式：
+		直接量
+		字符类
+		字符组
+			[abc]
+			[^abc]
+		位置
+			^以什么开头
+			$以什么结尾
+			\b零宽单词边界 如字符与空格之间
+			\B非零宽
+		分组
+			(\d){2}
+			\n
+		选择
+			|
+		次数
+			*
+			+
+			?
+			{n}
+			{n,}
+			{n,m}
+		次数后面?非贪婪模式
+
+包装器
+	Number、String、Boolean
+	装箱操作，拆箱操作
+
+Math对象
+	Math.min()
+	Math.max()
+	Math.ceil()
+	Math.floor() parseInt()
+	Math.round()
+	Math.random()
+
+Date对象
+	new Date()获取当前时间的对象
+	new Date(时间戳)将时间戳转换为时间类型
+	new Date('2019-01-01 23:23:23')
+	new Date('2019/01/01 23:23:23')
+
+	date.getFullYear()
+	date.getDate()
+	date.getMonth()
+	date.getHours()
+	date.getMinutes()
+	date.getSeconds()
+	date.getDay()
+	date.getMilliseconds()
+	date.getTime()获取JS的时间对象对应的时间戳表示
+
+前后端关于时间的数据交互，需要前后端商量格式
+	1.时间戳
+		前端给后台 时间戳
+			'2019-07-07 00:00:00'
+			先转换为Date实例，调用getTime()
+		后台给前端 时间戳
+			先将时间戳转换为Date实例
+			调用年月日时分秒的方法，转换为字符串，在前端页面显示
+	2.字符串
+		前端给后台 字符串
+			用日期插件采集到的就是字符串
+		后台给前端 字符串
+
+面向对象编程
+	批量创建对象
+	对象属性特性的控制
+	继承
+
+
+验证：其他引用数据类型，直接或间接继承自Object
+	
+
+DOM操作，用来操作文档节点
+Node类型
+	Document类型 document
+	Element类型 元素节点
+	Text类型    文本节点，包括回车换行
+	Comment类型 注释节点
+DOM层级关系
+	html
+	|		|
+	head	body
+			|			|			|
+			文本节点    div节点    注释节点
+
+Node类型的属性和方法
+Document类型的属性和方法
+Element类型的属性和方法
+Text类型的属性和方法
+注释类型的属性和方法
