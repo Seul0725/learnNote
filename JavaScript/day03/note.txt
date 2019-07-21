@@ -1,0 +1,35 @@
+运算符
+	+ - * / %
+	++ --
+	= += -=
+	一元运算符 + -
+	三目运算符
+	逻辑运算符 && || !
+
+数据类型的转换
+	其他->string
+		(1).toString(); null,undefined没有toString()方法
+		!!number 3 -> Number(3)包装器的转换，成为对象3
+			(3).toString() 3.2
+			String() Boolean()
+		(2)Sting()函数
+		(3)+''
+	其他->boolean
+		(1)Boolean()
+		(2)!!
+	其他->number
+		(1)Number()
+		(2)+ -
+		(3)parseInt()
+		(4)parseFloat
+
++
+	m+n
+		1)m,n都为非string和非object类型，将它转换为number类型，然后累加
+		2)m,n有一个string类型，另一个不是object而是其他基本数据类型，进行字符串的拼接
+		3)m,n有一个是object类型，如果重写了toString()和valueOf()，优先调用valueOf()的返回值
+
+
+
+
+

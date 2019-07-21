@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		span{
+			display: inline-block;
+			width: 70px;
+		}
+		.one{
+			opacity: 0;
+		}
+	</style>
+	<script>
+	for(var i=1;i<=9;i++){
+		for(var j=1;j<=i;j++){
+			document.write("<span>"+j+'*'+i+'='+(j*i)+"</span>");
+		}
+		document.write("<br />");
+	};
+	document.write("<hr />")
+	for(var i=9;i>=1;i--){
+		for(var j=1;j<=i;j++){
+			document.write("<span>"+j+'*'+i+'='+(j*i)+"</span>");
+		}
+		document.write("<br />");
+	};
+	document.write("<hr />")
+	for(var i=1;i<=9;i++){
+		for(var j=1;j<=9-i;j++){
+			document.write("<span class=\"one\">"+j+'*'+i+'='+(j*i)+"</span>");
+		}
+		for(var k=1;k<=i;k++){
+			document.write("<span>"+k+'*'+i+'='+(k*i)+"</span>");
+		}
+		document.write("<br />");
+	};
+	document.write("<hr />")
+	for(var i=9;i>=1;i--){
+		for(var j=1;j<=9-i;j++){
+			document.write("<span class=\"one\">"+j+'*'+i+'='+(j*i)+"</span>");
+		}
+		for(var k=1;k<=i;k++){
+			document.write("<span>"+k+'*'+i+'='+(k*i)+"</span>");
+		}
+		document.write("<br />");
+
+	}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
