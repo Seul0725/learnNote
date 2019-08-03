@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格</title>
+	<script src="myNewAJAX.js"></script>
+	<script>
+		window.onload = function(){
+			var tbody = document.getElementsByTagName('tbody')[0];
+			var btnsDiv = document.getElementById('btnsDiv');
+			findAllCategory();
+			function findAllCategory(){
+				myAJAX('GET','/manager/category/findAllCategory',null,function(res){
+					var str = '';
+					// console.log(res.data);
+					res.data.forEach(function(item){
+						str += `<tr>
+								<td><input type="checkbox" value="`+item.id+`"/></td>
+								<td>`+item.name+`</td>
+								<td>`+item.comment+`</td>
+								<td><button data-id="`+item.id+`">删除</button></td>
+							</tr>`;
+					});
+					tbody.innerHTML = str;
+				},function(error){
+					console.log(error);
+				});
+			}
+			function deleteCategoryById(obj){
+				myAJAX('GET','/manager/category/deleteCategoryById',obj,function(res){
+					findAllCategory();
+				},function(error){console.log(error)});
+			}
+			tbody.onclick = function(event){
+				var target = event.target;
+				if(target.nodeName=='BUTTON'){
+					var btnId = target.getAttribute('data-id');
+					deleteCategoryById({id:btnId});
+				}
+			}
+			function batchDeleteCatagory(obj){
+				myAJAX('POST','/manager/category/batchDeleteCategory',obj,function(res){
+					findAllCategory();
+				},function(error){console.log(error);});
+			}
+			function saveOrUpdateCategory(obj){
+				myAJAX('POST','/manager/category/saveOrUpdateCategory',obj,function(res){
+					findAllCategory();
+				},function(error){
+					console.log(error);
+				});
+			}
+			btnsDiv.onclick = function(event){
+				var target = event.target; 
+				var inputs = document.getElementsByTagName('input');
+				inputs = Array.prototype.slice.call(inputs);
+				if(target.innerText=='全选'){
+					inputs.forEach(function(item){
+						item.checked?item.checked=false:item.checked=true;
+					});
+				}
+				if(target.innerText=='新增'){
+					var name = prompt('请输入您想添加的项目名称：');
+					var comment = prompt('请输入您想添加的项目备注：');
+					var number = prompt('请输入您想添加的项目序号：');
+					saveOrUpdateCategory({
+						name:name,
+						comment:comment,
+						no:number
+					});
+				}
+				if(target.innerText=='批量删除'){
+					var btnId = inputs.filter(function(item){
+						return item.checked;
+					}).map(function(item){
+						return item.value;
+					});
+					batchDeleteCatagory({ids:btnId});
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div id='btnsDiv'>
+		<button>全选</button>
+		<button>新增</button>
+		<button>批量删除</button>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>备注</th>
+				<th>操作</th>
+			</tr>	
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</body>
+</html>

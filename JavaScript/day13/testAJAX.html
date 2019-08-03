@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试ajax</title>
+	<script>
+		//1.查找
+		findAllCategory();
+		function findAllCategory(){
+			myAJAX('GET','/manager/category/findAllCategory',null,function(res){
+				console.log(res);
+			},function(error){
+				console.log(error);
+			});
+		}
+		//2.删除单个
+		// deleteCategoryById({id:3001});
+		function deleteCategoryById(obj){
+			myAJAX('GET','/manager/category/deleteCategoryById',obj,function(res){
+				console.log(res);
+				findAllCategory();
+			},function(error){console.log(error)});
+		}
+		//3.批量删除
+		// batchDeleteCatagory({ids:[3026,3027].join()});
+		function batchDeleteCatagory(obj){
+			myAJAX('POST','/manager/category/batchDeleteCategory',obj,function(res){
+				console.log(res);
+				findAllCategory();
+			},function(error){console.log(error);});
+		}
+		//4.批量增加
+		var obj = {
+			name:'wpTest',
+			comment:'wp',
+			no:1
+		}
+		// var arr = [];
+		for(var i=0;i<10;i++){
+			var temp = JSON.parse(JSON.stringify(obj));
+			temp.name += i;
+			// arr.push(temp);
+			saveOrUpdateCategory(temp);
+		}
+		/*arr.forEach(function(item){
+			saveOrUpdateCategory(item);
+		});*/
+		function saveOrUpdateCategory(obj){
+			myAJAX('POST','/manager/category/saveOrUpdateCategory',obj,function(res){
+				console.log(res);
+				findAllCategory();
+			},function(error){console.log(error);});
+		}
+		function myAJAX(method,url,param,handle,handle2){
+		var xmlhttp = new XMLHttpRequest();
+		var baseURL = 'http://134.175.154.93:8099';
+		if(method=='GET'&&param){
+			url += '?'+encodeFormData(param);
+		}
+		xmlhttp.open(method,baseURL+url);
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				handle(JSON.parse(xmlhttp.responseText));
+			}else if(xmlhttp.status!=200){
+				handle2(xmlhttp.responseText);
+			}
+		}
+		if(method=='POST'&&param){
+			xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded;charset=UTF-8');
+			xmlhttp.send(encodeFormData(param));
+		}else {
+			xmlhttp.send();	
+		}
+	}
+
+	function encodeFormData(data){
+			if(!data){
+				return "";
+			}
+			var pairs = [];
+			for(var name in data){
+				if(!data.hasOwnProperty(name)){
+					continue;
+				}
+				if(typeof data[name] == "function"){
+					continue;
+				}
+				var value = data[name].toString();
+				name = encodeURIComponent(name.replace("%20","+"));//编码名字
+				value = encodeURIComponent(value.replace("%20","+"));//编码值
+				pairs.push(name+"="+value);
+			}
+			return pairs.join('&');
+	}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
