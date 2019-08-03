@@ -1,0 +1,68 @@
+继承
+	原型链继承
+	经典继承
+		继承属性
+		在子构造函数中借用父构造函数
+		Animal.call(this,name);
+	伪经典继承
+
+DOM操作
+	Node类型
+		nodeType
+		nodeValue
+		nodeName
+		childNodes
+		parentNode
+		parent.appendChild()
+		parent.insertBefore()
+		parent.replaceChild()
+		parent.removeChild()
+
+	Document类型
+		document实例
+		body
+
+		getElementById();
+		getElementsByTagName();
+		getElementsByClassName();
+		getElementsByName();
+
+		createElement();
+	Element类型
+		获取属性值
+			元素节点.属性名
+			元素节点.getAttribute()
+		设置属性值
+			元素节点.属性名='属性值';
+			元素节点.setAttribute('属性名','属性值')
+		删除属性
+			元素节点.removeAttribute();
+		设置CSS样式（操作标签中的style属性）
+			元素节点.style.color = 'blue';
+		.className
+		.id
+		.title
+		.src
+		.alt
+		自定义的属性 date-属性名
+
+1.html事件
+	<div onclick="text()"></div>
+2.DOM0级事件
+	div.onclick=function(){}
+3.DOM2级事件
+	addEventListener()
+事件
+	事件三要素
+		事件目标
+			谁触发的事件去执行
+		事件处理程序
+			function(){}
+		事件对象
+			event
+		div.onclick = function(event){}
+	事件流
+		事件捕获流
+		事件冒泡流
+		DOM事件流
+			先事件捕获，再处理目标，再冒泡

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<style>
+		.outer{
+			width: 300px;
+			height: 300px;
+			background-color: coral;
+			margin:0 auto;
+		}
+		.center{
+			width: 200px;
+			height: 200px;
+			background-color: cyan;
+			margin:50px auto;
+		}
+		.inner{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 50px auto;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			/*var outer = document.getElementsByClassName('outer')[0];
+			var center = document.getElementsByClassName('center')[0];
+			var inner = document.getElementsByClassName('inner')[0];*/
+			var outer = document.getElementById('one');
+			var center = document.getElementById('two');
+			var inner = document.getElementById('three');
+			//DOM0级绑定事件
+			/*outer.onclick = function(event){
+				console.log(this);
+				console.log('outer');
+			}
+			center.onclick = function(event){
+				console.log(this);
+				console.log('center');
+			}
+			inner.onclick = function(event){
+				console.log('inner');
+			}*/
+			function handle(event){
+				console.log(this.className);
+				event=event||window.event;
+				target=event.target||event.srcElement;
+				//事件对象event
+				// console.log(event);
+				//target属性-->事件目标，触发事件执行的元素
+				console.log(target);
+				//currentTarget-->this 当前正在执行事件处理程序的元素
+				console.log(event.currentTarget);
+				// console.log(this===event.currentTarget);//true
+				if(event.stopPropagation){
+					//阻止冒泡 IE8以上
+					event.stopPropagation();
+				}else {
+					//阻止冒泡 IE8及以下
+					event.cancelBubble = true;
+				}	
+			}
+			outer.onclick=handle;
+			center.onclick=handle;
+			inner.onclick=handle;
+		}
+	</script>
+</head>
+<body>
+	<div class="outer" id="one">
+		outer
+		<div class="center" id="two">
+			center
+			<div class="inner" id="three">inner</div>
+		</div>
+	</div>
+</body>
+</html>
