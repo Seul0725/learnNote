@@ -1,0 +1,18 @@
+请求
+	请求方法 get/post  
+	请求地址 URL
+	请求头	传递数据的格式 Content-Type
+	请求体	post格式的数据在这里存放
+响应
+	响应头
+
+	响应体
+		响应的内容--后台给前端的数据
+AJAX的请求，异步的
+     
+同步：A任务执行完了，B任务才开始执行
+异步：A任务执行的同时，B任务也在执行，两个任务执行互不相干
+
+使用post传递表单格式的数据
+	1.设置请求头的Content-Type:'application/x-www-form-urlencoded' Content-Type告诉后台给的是什么格式的数据
+	2.将要发送的数据转换成表单格式的数据再发送 http.send(发送的数据);

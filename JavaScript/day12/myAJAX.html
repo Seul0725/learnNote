@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>myAJAX</title>
+	<style>
+		body{
+			background-color: tan;
+		}
+		table{
+			border-collapse: collapse;
+			width: 400px;
+		}
+		table,th,td{
+			border: 1px solid #333;
+			text-align:center;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+		myAJAX('GET','/manager/category/findAllCategory',null,function(res){
+				var tbody = document.querySelector('tbody');
+				var batchDelete = document.getElementById('batchDelete');
+				var add = document.getElementById('add');
+				var modify = document.getElementById('modify');
+				var str = '';
+				JSON.parse(res)['data'].forEach(function(item){
+					str += `<tr>
+								<td>
+									<input type="checkbox" value='`+item.id+`' />
+								</td>
+								<td>`+item.no+`</td>
+								<td>`+item.name+`</td>
+								<td>`+item.comment+`</td>
+								<td>
+									<button>删除</button>
+								</td>
+							</tr>`;
+				});
+				tbody.innerHTML = str;
+				tbody.onclick = function(event){
+					if(event.target.nodeName=='BUTTON'){
+						this.removeChild(event.target.parentNode.parentNode);
+						var inputValue = event.target.parentNode.parentNode.firstElementChild.firstElementChild.value;
+						myAJAX('GET','/manager/category/deleteCategoryById?id='+inputValue,null,function(res){return res;});
+					}
+				}
+				batchDelete.onclick = function(event){
+					var inputs = document.getElementsByTagName('input');
+					var newInput = Array.prototype.slice.call(inputs).filter(function(item){
+						return item.checked == true;
+					});
+					if(newInput.length>0){
+						newInput.forEach(function(item){
+							tbody.removeChild(item.parentNode.parentNode);
+							myAJAX('POST','/manager/category/batchDeleteCategory',{ids:[item.value].join()},function(res){
+								return res;
+							});
+						});
+					}else{
+						alert('请选择需要删除的数据！！');
+					}
+				}
+				add.onclick = function(event){
+					/*var newNo = document.forms[0].children[0];
+					var newName = document.forms[0].children[1];
+					var newComment = document.forms[0].children[2];*/
+					var newNo = +prompt('输入您的序号：');
+					var newName = prompt('输入您的项目名称：');
+					var newComment = prompt('输入您的备注：');
+					myAJAX('POST','/manager/category/saveOrUpdateCategory',{name:newName,comment:newComment,no:newNo},function(res){
+						alert(JSON.parse(res).message);
+						var newTr = document.createElement('tr');
+						var str = `<td>
+							<input type="checkbox"/>
+						</td>
+						<td>`+newNo+`</td>
+						<td>`+newName+`</td>
+						<td>`+newComment+`</td>
+						<td>
+							<button>删除</button>
+						</td>`;
+						newTr.innerHTML = str;
+						tbody.appendChild(newTr);
+					});		
+				}
+				modify.onclick = function(){
+					var newId = +prompt('请选择需要修改的id值：');
+					var newNo = +prompt('输入您的新序号：');
+					var newName = prompt('输入您的新项目名称：');
+					var newComment = prompt('输入您的新备注：');
+					myAJAX('POST','/manager/category/saveOrUpdateCategory',{id:newId,name:newName,comment:newComment,no:newNo},function(res){
+						// alert(JSON.parse(res).message);
+						var modifyTr;
+						var trs = tbody.children;
+						trs = [].slice.call(trs);
+						trs.forEach(function(item){
+							if(item.firstElementChild.firstElementChild.value==newId){
+								modifyTr = item;
+							}
+						});
+						var newTr = document.createElement('tr');
+						var str = `
+									<td>
+										<input type="checkbox" value='`+newId+`' />
+									</td>
+									<td>`+newNo+`</td>
+									<td>`+newName+`</td>
+									<td>`+newComment+`</td>
+									<td>
+										<button>删除</button>
+									</td>`;
+						newTr.innerHTML=str;
+						tbody.replaceChild(newTr,modifyTr);
+					});
+				}
+			});
+		}
+		function myAJAX(method,url,param,handle){
+			var http = new XMLHttpRequest();
+			var baseURL='http://134.175.154.93:8099';
+			http.open(method,baseURL+url);
+			http.onreadystatechange = function(){
+				if(http.status==200&&http.readyState==4){
+					handle(http.responseText);
+				}
+			}
+			if(method=='POST'){
+				http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+				http.send(encodeFormData(param));
+			}else if(method=='GET'){
+				http.send();
+			}
+		}
+		function encodeFormData(data){
+				if(!data){
+					return "";
+				}
+				var pairs = [];
+				for(var name in data){
+					if(!data.hasOwnProperty(name)){
+						continue;
+					}
+					if(typeof data[name] == "function"){
+						continue;
+					}
+					var value = data[name].toString();
+					name = encodeURIComponent(name.replace("%20","+"));//编码名字
+					value = encodeURIComponent(value.replace("%20","+"));//编码值
+					pairs.push(name+"="+value);
+				}
+				return pairs.join('&');
+		}
+		
+		
+	</script>
+</head>
+<body>
+	
+	<button id="batchDelete">批量删除</button>
+	<button id="add">新增</button>
+	<button id="modify">修改</button>
+	<table>
+		<thead>
+			<th>选择</th>
+			<th>序号</th>
+			<th>栏目名称</th>
+			<th>备注</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
+</body>
+</html>
