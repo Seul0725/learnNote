@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#outer{
+			width: 150px;
+			height: 200px;
+			background-color: yellowgreen;
+			overflow: auto;
+		}
+		#inner{
+			width: 100px;
+			height: 600px;
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var innerDiv = document.getElementById('inner');
+			var outerDiv = document.getElementById('outer');
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				//获得整个滚动区域的的高度
+				// alert(outerDiv.scrollHeight);//600
+				// alert(outerDiv.scrollWidth);
+				// alert(outerDiv.clientHeight);//200
+
+				//获得水平滚动条滚动的距离 scrollLeft
+				//获得垂直滚动条滚动的距离 scrollTop
+				// alert(outerDiv.scrollTop);//400
+				// 当满足scrollHeight - scrollTop === clientHeight，说明垂直滚动条到底了
+				// 当满足scrollWidth - scrollLeft === clientWidth，说明水平滚动条到底了
+				alert(outerDiv.scrollHeight-outerDiv.scrollTop===outerDiv.clientHeight);
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">点我一下</button>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+</body>
+</html>

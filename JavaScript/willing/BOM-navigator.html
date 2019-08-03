@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>navigator</title>
+	<script>
+		// console.log(window);
+		// console.log(window.navigator);
+		// console.log(navigator);
+		// console.log(location);
+		// console.log(history);
+		console.log(navigator.userAgent);
+		var na = navigator.userAgent;
+		if(/chrome/i.test(na)){
+			alert('你是谷歌浏览器');
+		}else if(/firefox/i.test(na)){
+			alert('你是火狐浏览器');
+		}else if(/msie/i.test(na)){
+			alert('你是IE浏览器，但不是IE11');
+		}else if('ActiveXObject' in window){
+			alert('你是IE11');
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

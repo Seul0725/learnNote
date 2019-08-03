@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			/*键盘事件一般会绑定给可以获取到焦点的对象或者document
+			onkeydown 按键被按下
+			onkeyup 按键被松开
+			通过keyCode来获取按键的编码
+			altKey ctrlKey shiftKey
+			这三个用来判断alt,ctrl,shift是否被按下，如果按下返回true，否则返回false
+			在文本框中输入内容属于onkeydown的默认行为，如果取消了onkeydown的默认行为，
+			则输入的内容不会出现在文本框中*/
+			var input = document.getElementsByTagName('input')[0];
+			input.onkeydown = function(event){
+				//使文本框不能输入数字
+				event = event||window.event;
+				if(event.keyCode>=48&&event.keyCode<=57){
+					return event.preventDefault?event.preventDefault():(event.returnValue=false);
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text">
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: coral;
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var div = document.getElementById('box');
+			div.onmousedown = function(event){
+				event = event||window.event;
+				var st = document.body.scrollTop||document.documentElement.scrollTop;
+				var sl = document.body.scrollLeft||document.documentElement.scrollLeft;
+				var pageX = event.pageX || event.clientX +sl;
+				var pageY = event.pageY || event.clientY +st;
+				var ot = pageY - div.offsetTop;
+				var ol = pageX - div.offsetLeft;
+				document.onmousemove = function(event){
+					//clientX,clientY用于获取鼠标在当前的可见窗口的坐标
+					var pageX = event.pageX || event.clientX +sl;
+					var pageY = event.pageY || event.clientY +st;
+					var left = pageX - ot;
+					var top = pageY - ol;
+					div.style.left = left + 'px';
+					div.style.top = top + 'px';
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+			}
+
+		}
+	</script>
+</head>
+<body style="width: 2000px;height: 2000px">
+	<div id="box"></div>
+</body>
+</html>

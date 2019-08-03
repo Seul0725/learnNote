@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#one{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var div = document.getElementById('one');
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				// currentStyle只支持IE，没有设置width会返回auto默认值
+				// console.log(div.currentStyle.width);
+				//getComputedStyle返回一个对象，IE8及以下不支持
+				// var obj = getComputedStyle(div,null);
+				//没有设置width，会返回一个真实值
+				// alert(obj.width);
+				//currentStyle和getComputedStyle获取的样式都是只读的，不可修改
+				/*if(window.getComputedStyle){
+					alert(getComputedStyle(div,null).backgroundColor);
+				}else{
+					alert(div.currentStyle.backgroundColor);
+				}*/
+				alert(myStyle(div,'backgroundColor'))
+			}
+		}
+		function myStyle(obj,name){
+			return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name];
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">点我一下</button>
+	<br>
+	<br>
+	<div id="one"></div>
+</body>
+</html>

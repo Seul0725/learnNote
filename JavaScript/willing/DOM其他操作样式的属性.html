@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border:10px solid blue;
+			padding: 10px;
+		}
+		#outer{
+			padding: 50px;
+			background-color: cyan;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var btn = document.getElementById('btn');
+			var div = document.getElementById('box');
+			btn.onclick = function(){
+				//以下属性只读，不可修改
+				//只包含内容区和内边距的宽度和高度，不带px
+				// clientWidth  clientHeight
+				alert(div.clientWidth);
+
+				//获取元素整个宽度和高度，包括内容区和内边距和边框
+				//offsetWidth  offsetHeight
+				// alert(div.offsetHeight);
+
+				//相对于最近的祖先元素进行定位，如果祖先元素都没有设置定位，则返回body
+				// alert(div.offsetParent.id);
+
+				//返回元素的水平偏移位置 offsetLeft 当前元素相对于其定位父元素的水平偏移量
+				//返回元素的垂直偏移位置 offsetTop  当前元素相对于其定位父元素的垂直偏移量
+				// alert(div.offsetLeft);
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">点我一下</button>
+	<div id="outer" style="position:relative;">
+		<div id="box"></div>
+	</div>
+</body>
+</html>
