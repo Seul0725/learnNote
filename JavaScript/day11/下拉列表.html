@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var grades = [{
+			id:1001,
+			name:'一年级'
+		},{
+			id:1002,
+			name:'二年级'
+		},{
+			id:1003,
+			name:'三年级'
+		}];
+
+		var classes = [{
+			id:101,
+			name:'一年级一班',
+			gradeId:1001
+		},{
+			id:102,
+			name:'一年级二班',
+			gradeId:1001
+		},{
+			id:103,
+			name:'一年级三班',
+			gradeId:1001
+		},{
+			id:104,
+			name:'二年级一班',
+			gradeId:1002
+		},{
+			id:105,
+			name:'二年级二班',
+			gradeId:1002
+		},{
+			id:106,
+			name:'二年级三班',
+			gradeId:1002
+		},{
+			id:107,
+			name:'三年级一班',
+			gradeId:1003
+		},{
+			id:108,
+			name:'三年级二班',
+			gradeId:1003
+		},{
+			id:109,
+			name:'三年级三班',
+			gradeId:1003
+		}];
+
+		window.onload = function(){
+			var gradeSelect = document.getElementById('grade');
+			var classSelect = document.getElementById('classes');
+			grades.forEach(function(item){
+				var newOption = document.createElement('option');
+				newOption.innerText = item.name;
+				newOption.value = item.id;
+				gradeSelect.appendChild(newOption);
+			});
+			gradeSelect.onchange = function(){
+				if(this.value){
+					var newResult = classes.filter(function(item){
+						//gradeId为数字，value为字符串
+						return item.gradeId==this.value;
+					},this);
+					var str = `<option value="">请选择</option>`;
+					newResult.forEach(function(item){
+						str += `<option value="`+item.id+`">`+item.name+`</option>`;
+					});
+					classSelect.innerHTML = str;
+					classSelect.disabled = false;
+				}else{
+					classSelect.disabled = true;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<select id="grade">
+		<option value="">请选择</option>
+	</select>
+	<select id="classes" disabled>
+		<option value="">请选择</option>
+	</select>
+</body>
+</html>

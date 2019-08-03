@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var stus = [{
+			id:1001,
+			name:'xiaoming',
+			age:18,
+			gender:'男'
+		},{
+			id:1002,
+			name:'xiaohong',
+			age:18,
+			gender:'男'
+		},{
+			id:1003,
+			name:'Tom',
+			age:18,
+			gender:'女'
+		},{
+			id:1004,
+			name:'Jerry',
+			age:18,
+			gender:'男'
+		}];
+
+		window.onload = function(){
+			var tbody = document.getElementsByTagName('tbody')[0];
+			var BatchRemove = document.getElementById('BatchRemove');
+			var add = document.getElementById('add');
+			var str = '';
+			stus.forEach(function(item){
+				str += `<tr>
+							<td>
+								<input type="checkbox">
+							</td>
+							<td>`+item.name+`</td>
+							<td>`+item.age+`</td>
+							<td>`+item.gender+`</td>
+							<td>
+								<button>删除</button>
+							</td>
+						</tr>`;
+			});
+			tbody.innerHTML = str;
+			//删除
+			tbody.onclick = function(event){
+				var target = event.target;
+				if(target.nodeName==='BUTTON'){
+					tbody.removeChild(target.parentNode.parentNode);
+				}
+			}
+			//批量删除
+			BatchRemove.onclick = function(event){
+				var inputs = document.getElementsByTagName('input');
+				inputs = Array.prototype.slice.call(inputs);
+				var inputsResult = inputs.filter(function(item){
+					return item.checked === true;
+				});
+				if(inputsResult.length>0){
+					inputsResult.forEach(function(item){
+						tbody.removeChild(item.parentNode.parentNode);
+					});
+					
+				}else{
+					alert('请选择需要删除的数据')
+				}
+			}
+			//新增
+			add.onclick = function(){
+				var newTr = document.createElement('tr');
+				var str = `<td>
+					<input type="checkbox">
+				</td>
+				<td>mary</td>
+				<td>15</td>
+				<td>女</td>
+				<td>
+					<button>删除</button>
+				</td>`;
+				newTr.innerHTML = str;
+				tbody.appendChild(newTr);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<button id="add">新增</button>
+	<button id="BatchRemove">批量删除</button>
+	<table>
+		<thead>
+			<th>编号</th>
+			<th>名字</th>
+			<th>年龄</th>
+			<th>性别</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<!-- <tr>
+				<td>
+					<input type="checkbox">
+				</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<button>删除</button>
+				</td>
+			</tr> -->
+		</tbody>
+	</table>
+</body>
+</html>

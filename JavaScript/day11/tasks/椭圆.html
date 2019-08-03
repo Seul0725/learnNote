@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>椭圆</title>
+	<style>
+		div{
+			border:1px solid #333;
+			/*background-color: coral;*/
+			border-radius:50%;
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var div,startX,startY;
+			document.onmousedown = function(event){
+				div = document.createElement('div');
+				startX = event.clientX;
+				startY = event.clientY;
+				document.body.appendChild(div);
+				div.style.left = startX+'px';
+				div.style.top = startY+'px';
+			}
+			document.onmousemove = function(event){
+				// if(div){
+					div.style.width = event.clientX - startX + 'px'; 
+					div.style.height = event.clientY - startY + 'px';
+				// }
+			}
+			document.onmouseup = function(){
+				div = null;
+			}
+		}
+	</script>
+</head>
+<body>
+	按下鼠标绘制，移动鼠标改变大小
+</body>
+</html>

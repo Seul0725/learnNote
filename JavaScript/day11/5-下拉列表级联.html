@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>级联</title>
+	<script>
+		//添加数据
+		var grades = [{
+			id:1001,
+			name:'一年级'
+		},{
+			id:1002,
+			name:'二年级'
+		},{
+			id:1003,
+			name:'三年级'
+		}];
+		var classes = [{
+			id:101,
+			name:'一年级一班',
+			gradeId:1001
+		},{
+			id:102,
+			name:'一年级二班',
+			gradeId:1001
+		},{
+			id:103,
+			name:'一年级三班',
+			gradeId:1001
+		},{
+			id:104,
+			name:'二年级一班',
+			gradeId:1002
+		},{
+			id:105,
+			name:'二年级二班',
+			gradeId:1002
+		},{
+			id:106,
+			name:'二年级三班',
+			gradeId:1002
+		},{
+			id:107,
+			name:'三年级一班',
+			gradeId:1003
+		},{
+			id:108,
+			name:'三年级二班',
+			gradeId:1003
+		},{
+			id:109,
+			name:'三年级三班',
+			gradeId:1003
+		}];
+		window.onload = function(){
+			var gradeSelect = document.getElementById('grade');
+			var classesSelect = document.getElementById('classes');
+			grades.forEach(function(item){
+				var newOption = document.createElement('option');
+				newOption.innerText = item.name;
+				newOption.value = item.id;
+				gradeSelect.appendChild(newOption);
+			});
+			grade.onchange = function(){
+				// console.log(this.value);
+				// var vm = this;
+				if(this.value){
+					var classResult = classes.filter(function(item){
+						// console.log(item.gradeId,vm.value);
+						return item.gradeId==this.value;
+					},this);
+					// console.log(classResult);
+					var str = '';
+					classResult.forEach(function(item){
+						str += '<option value="'+item.id+'">'+item.name+'</option>';
+					});
+					classesSelect.innerHTML = str;
+					classesSelect.disabled = false;
+				}else {
+					// classesSelect.innerHTML='<option value="">请选择</option>';
+					classesSelect.disabled = true;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<select name="" id="grade">
+		<option value="">请选择</option>
+	</select>
+	<select name="" id="classes" disabled>
+		<option value="">请选择</option>
+	</select>
+</body>
+</html>

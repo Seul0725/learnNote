@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容性代码</title>
+	<script>
+		var eventUtil = {
+			// 1.事件绑定
+			bind:function(el,type,handle){
+				if(el.addEventListener){
+					el.addEventListener(type,handle);
+				}else if(el.attachEvent){
+					el.attachEvent('on'+type,function(){
+						handle.call(el);
+					});
+					// el.attachEvent('on'+type,handle)
+				}else {
+					el['on'+type]=handle;
+				}
+			},
+			// 2.事件解绑
+			unbind:function(el,type,handle){
+				if(el.removeEventListener){
+					el.removeEventListener(type,handle);
+				}else if(el.detachEvent){
+					el.detachEvent('on'+type,handle);
+				}else {
+					el['on'+type]=null;
+				}
+			},
+			// 3.事件对象
+			getEvent:function(event){
+				return event||window.event;
+				// return event?event:window.event;
+			},
+			// 4.事件目标
+			getTargrt:function(event){
+				return event.target?event.target:event.srcElement;
+			},
+			// 5.停止冒泡
+			stopProp:function(event){
+				return event.stopPropagation?event.stopPropagation():(event.cancelBubble = true)
+			},
+			// 6.阻止默认
+			preventDef:function(event){
+				return event.preventDefault?event.preventDefault():(event.returnValue=false);
+			}
+		}
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			var btn = document.getElementsByTagName('button')[0];
+			function handle1(event){
+				//e 就是事件对象
+				var e = eventUtil.getEvent(event);
+				console.log(e);
+				// console.log(this);
+				alert(this);
+				// alert(1);
+			}
+			eventUtil.bind(div,'click',handle1);
+			eventUtil.bind(btn,'click',function(event){
+				eventUtil.unbind(div,'click',handle1);
+				// console.log(this);
+				console.log('解绑成功');
+			})
+		}
+	</script>
+</head>
+<body>
+	<button>解绑</button>
+	<div>hello</div>
+</body>
+</html>

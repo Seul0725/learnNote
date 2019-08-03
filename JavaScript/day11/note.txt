@@ -1,0 +1,32 @@
+事件
+	事件目标 event.target
+	事件处理程序 函数
+	事件对象 event
+		currentTarget当前正在处理程序的目标
+	事件绑定
+		1.HTML事件处理程序
+			<div onclick="test()"></div>
+		2.DOM0级事件处理程序
+			div.onclick = function(event){
+			event = event||window.event;
+			}
+			div.onclick = null;解绑
+		3.DOM2级事件处理程序
+			//非IE8及以上
+			//如果同一节点同一事件类型绑定了多个事件处理程序，顺序执行
+			div.addEventListener('click',handler,false);
+			div.removeEventListener('click',handler,false);
+			匿名函数无法解绑
+			function handler(event){};
+			//IE8及以下
+			//如果同一节点同一事件类型绑定了多个事件处理程序，倒序执行
+			div.attachEvent('onclick',handle);
+			div.detachEvent('onclick',handle);
+
+浏览器兼容事件处理代码
+1.事件绑定
+2.事件解绑
+3.事件对象
+4.事件目标
+5.停止冒泡
+6.阻止默认

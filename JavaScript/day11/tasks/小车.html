@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小车移动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			height: 100%;
+			background-color: tan;
+		}
+		#car{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			background-image: url(小汽车.png);
+			background-size: 100% 100%;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var car = document.getElementById('car');
+			var body = document.body;
+			document.addEventListener('keydown', callBack);
+			function callBack(event){
+				var carWidth = parseInt(getComputedStyle(car, null).width);
+				var carHeight = parseInt(getComputedStyle(car, null).height);
+				var bodyWidth = parseInt(getComputedStyle(body, null).width);
+				var bodyHeight = parseInt(getComputedStyle(body, null).height);
+				var speed = 10;
+				if(event.shiftKey){
+					speed = 50;
+				}
+				
+				switch(event.keyCode){
+					case 37:
+						//向左
+						car.style.left=car.offsetLeft-speed+'px';
+						car.style.transform='rotateY(180deg)';
+						break;
+					case 38:
+						//上
+						car.style.top=car.offsetTop-speed+'px';
+						car.style.transform='rotateZ(-90deg)';
+						break;
+					case 39:
+						//右
+						car.style.left=car.offsetLeft+speed+'px';
+						car.style.transform='rotateZ(0deg)';
+						break;
+					case 40:
+						//下
+						car.style.top=car.offsetTop+speed+'px';
+						car.style.transform='rotateZ(90deg)';
+						break;
+				}
+				if(car.offsetLeft>=bodyWidth-carWidth){
+					car.style.left = bodyWidth-carWidth+'px';
+				}
+				if(car.offsetLeft<=0){
+					car.style.left = 0;
+				}
+				if(car.offsetTop<=0){
+					car.style.top = 0;
+				}
+				if(car.offsetTop>=bodyHeight-carHeight){
+					car.style.top = bodyHeight-carHeight+'px';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="car"></div>		
+</body>
+</html>
