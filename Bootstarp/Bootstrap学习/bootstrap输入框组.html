@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入框组</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		body{
+			overflow-y: scroll;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form action="" class="form-horizontal">
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<div class="input-group">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" placeholder="Username">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Recipient's username">
+						<span class="input-group-addon">@example.com</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="basic-url" class="control-label col-md-2">Your vanity URL</label>
+				<div class="col-md-10">
+					<div class="input-group">
+						<span class="input-group-addon">https://example.com/users/</span>
+						<input type="text" class="form-control" id="basic-url">
+					</div>
+				</div>
+			</div>
+			<h4 class="col-md-offset-2">尺寸</h4>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" placeholder="Username">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<div class="input-group input-group">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" placeholder="Username">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" placeholder="Username">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<div class="input-group input-group-xs">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" placeholder="Username">
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<input type="checkbox">
+					</span>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<input type="radio">
+					</span>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default">Go</button>
+					</span>
+					<input type="text" class="form-control" placeholder="Search for...">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<input type="text" class="form-control">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default">Go</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+						Action 
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li role="separator"></li>
+						<li><a href="#">3</a></li>
+					</ul>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<input type="text" class="form-control">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							Action
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li role="separator"></li>
+							<li><a href="#">3</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="button">Action</button>
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Dropdown Menu</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">1</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">1</a></li>
+						</ul>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<input type="text" class="form-control">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="button">Action</button>
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Dropdown Menu</span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="#">1</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">1</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+						<button class="btn btn-default" type="button">
+							<span class="glyphicon glyphicon-italic" aria-hidden="true"></span>
+						</button>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<input type="text" class="form-control">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<span class="glyphicon glyphicon-question-sign"></span>
+						</button>
+						<button class="btn btn-default" type="button">Action</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+
+</body>
+</html>

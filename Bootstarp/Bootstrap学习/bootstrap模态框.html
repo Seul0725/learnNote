@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模态框</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			// $("#myModal").modal();//页面初始化显示模态框
+			/*$("#myModal").modal({
+				keyboard:false//当按下 escape 键时关闭模态框，设置为 false 时则按键无效。 
+			});*/
+			// $("#myModal").modal("show");//显示模态框
+			// $("#myModal").modal("hide");//隐藏模态框
+			// $("#myModal").modal("toggle");//触发时，反转模态模态框的状态。如果模态框是显示的，则关闭；反之，如果模态框是关闭的，则显示
+			// $("#myModal").modal({
+			// 	backdrop:false//指定一个静态的背景，当用户点击模态框外部时不会关闭模态框。 
+			// });
+			/*$("#myModal").on("hide.bs.modal",function(){
+				alert("我是模态框隐藏的时候才出来的！");
+			});*/
+			$("#myModal").on("show.bs.modal",function(event){
+				console.log(event.relatedTarget);
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- tabindex="-1"只能在模态框内切换元素的焦点 -->
+	<div class="modal fade" tabindex="-1" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal"><span>&times;</span></button>
+					<h4 class="modal-title">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>One fine body&hellip;点不了我</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+					<button class="btn btn-primary" type="button">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div class="modal fade" tabindex="-1" id="myModal-lg">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal"><span>&times;</span></button>
+					<h4 class="modal-title">模态框标题</h4>
+				</div>
+				<div class="modal-body">
+					<p>我是大号的模态框&hellip;</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
+					<button class="btn btn-primary" type="button">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" tabindex="-1" id="myModal-sm">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal"><span>&times;</span></button>
+					<h4 class="modal-title">小模态框标题</h4>
+				</div>
+				<div class="modal-body">
+					<p>我是小号模态框&hellip;</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" data-dismiss="modal">关闭</button>
+					<button class="btn btn-primary">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="jumbotron">
+			<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Launch demo modal(开始演示模态框)</button>
+			<a data-toggle="modal" href="#myModal">请点击我</a>
+			<!-- <a data-toggle="modal" href="../day02/1-百度一下.html" data-target="#myModal-lg">请点击我</a> -->
+		</div>
+		<div class="well">
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal-lg">大模态框</button>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal-sm">小模态框</button>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				我是panel面板
+			</div>
+		</div>
+	</div>
+</body>
+</html>

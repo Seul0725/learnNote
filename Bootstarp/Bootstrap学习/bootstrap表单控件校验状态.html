@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>校验状态</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<form action="">
+			<div class="form-group has-success has-feedback">
+				<label for="inputSuccess" class="control-label">Input with success</label>
+				<div class="input-group">
+					<span class="input-group-addon">@</span>
+					<input type="text" class="form-control" id="inputSuccess" aria-describedby="helpBlock">
+				</div>
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<p class="help-block" id="helpBlock">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+			</div>
+			<div class="form-group has-warning has-feedback">
+				<label for="inputWarning" class="control-label">Input with warning</label>
+				<input type="text" class="form-control" id="inputWarning" aria-describedby="inputWarningStatus">
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				<span id="inputWarningStatus" class="sr-only">(warning)</span>
+			</div>
+			<div class="form-group has-error has-feedback">
+				<label for="inputError" class="control-label">Input with error</label>
+				<input type="text" class="form-control" id="inputError" aria-describedby="inputErrorStatus">
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span id="inputErrorStatus" class="sr-only">(error)</span>
+			</div>
+			<div class="has-success">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> Checkbox with success
+					</label>
+				</div>
+			</div>
+			<div class="has-warning">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> Checkbox with warning
+					</label>
+				</div>
+			</div>
+			<div class="has-error">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> Checkbox with error
+					</label>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

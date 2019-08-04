@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮式下拉菜单</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<p class="text-danger">单按钮下拉菜单</p>
+		<div class="btn-group" role="group">
+			<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+				Default
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">选项一</a></li>
+				<li><a href="#">选项二</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">选项三</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+				Primary
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">选项一</a></li>
+				<li><a href="#">选项二</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">选项三</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+				Success
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">选项一</a></li>
+				<li><a href="#">选项二</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">选项三</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+				Info
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">选项一</a></li>
+				<li><a href="#">选项二</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">选项三</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+				Warning
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">选项一</a></li>
+				<li><a href="#">选项二</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">选项三</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+				Danger
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">选项一</a></li>
+				<li><a href="#">选项二</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">选项三</a></li>
+			</ul>
+		</div>
+		<p class="text-muted">分裂时按钮下拉菜单</p>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default">Default</button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">3</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">primary</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">3</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-info">info</button>
+			<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">3</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-danger">danger</button>
+			<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">3</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-success">success</button>
+			<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">3</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-warning">warning</button>
+			<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">3</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

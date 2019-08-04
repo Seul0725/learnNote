@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>下拉菜单</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			// $("#one").dropdown("toggle");
+			/*$("#one").on("shown.bs.dropdown",function(){
+				console.log(1);
+			});*/
+		});
+	</script>
+</head>
+<body>
+	<nav class="nav navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Project Name</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="one">Dropdown
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separator link</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separator link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Dropdown
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separator link</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br><br>
+	<nav class="nav navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Project Name</a>
+			</div>
+			<div class="collapse navbar-collapse" id="defaultNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Regular link</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Dropdown
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br><br>
+	<nav>
+		<div class="container-fluid">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Messages</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br><br>
+	<nav>
+		<div class="container-fluid">
+			<ul class="nav nav-pills">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Messages</a></li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

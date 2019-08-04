@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>提示</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<br><br>
+		<div class="well">
+			<button class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="左边提示">Tooltip on left</button>
+			<button class="btn btn-default" type="button" data-toggle="tooltip" data-placement="top" title="上边提示">Tooltip on top</button>
+			<button class="btn btn-default" type="button" data-toggle="tooltip" data-placement="bottom" title="下边提示">Tooltip on bottom</button>
+			<button class="btn btn-default" type="button" data-toggle="tooltip" data-placement="right" title="右边提示">Tooltip on right</button>
+		</div>
+	</div>
+</body>
+</html>

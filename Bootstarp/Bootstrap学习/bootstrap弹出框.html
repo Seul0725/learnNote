@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出框</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$("[data-toggle='popover']").popover();
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="jumbotron">
+			<button class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="top" title="Popover 顶部" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">顶部弹出框</button>
+			<button class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="left" title="Popover 左侧" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">左侧弹出框</button>
+			<button class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Popover 底部" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">底部弹出框</button>
+			<button class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="right" title="Popover 右侧" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">右侧弹出框</button>
+			<br><br>
+			<button class="btn btn-danger" title="123" data-content="11111" tabindex="0" data-toggle="popover" data-trigger="focus">可消失的弹出口</button>
+		</div>
+	</div>
+</body>
+</html>

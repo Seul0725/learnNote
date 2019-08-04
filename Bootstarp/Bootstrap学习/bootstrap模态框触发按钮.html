@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		//relatedTarget 属性用于返回当前事件涉及到的其他DOM元素
+		$(function(){
+			// $("#myModal").modal("show");
+			$("#myModal").modal("handleUpdate");
+			$("#myModal").on("show.bs.modal",function(event){
+				var button = $(event.relatedTarget);
+				var recipient = button.data("whatever");
+				$(this).find(".modal-title").text("New message to "+recipient);
+				$(this).find("#recipient").val(recipient);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="modal fade" id="myModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal"><span>&times;</span></button>
+					<h4 class="modal-title">New Message</h4>
+				</div>
+				<div class="modal-body">
+					<form action="">
+						<div class="form-group">
+							<label for="recipient">Recipient:</label>
+							<input type="text" class="form-control" id="recipient">
+						</div>
+						<div class="form-group">
+							<label for="message">Message:</label>
+							<input type="text" class="form-control" id="message">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button class="btn btn-primary">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="jumbotron">
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-whatever="@xiaoming">发送给小明</button>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-whatever="@xiaohong">发送给小红</button>
+			<!-- <a href="test.html" data-target="#myModal" data-toggle="modal">点击</a> -->
+		</div>
+	</div>
+</body>
+</html>
