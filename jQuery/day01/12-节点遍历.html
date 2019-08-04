@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var $result = $(".outer").children(".inner");
+			console.log($result);
+			console.log($(".outer>.inner"));
+			$result = $(".outer").find(".inner");
+			console.log($result);
+			console.log($(".outer .inner"));
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">子代inner</div>
+		<div>
+			<div class="inner">后代inner</div>
+		</div>
+	</div>
+</body>
+</html>

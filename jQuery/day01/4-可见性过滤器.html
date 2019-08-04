@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.one{
+			display: none;
+		}
+		.two{
+			visibility: hidden;
+		}
+		.three{
+			opacity: 0;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var $result = $(':hidden');
+			var $result = $('body :visible');
+			var $result = $('body [title!=one]');
+			console.log($result);
+		});
+	</script>
+</head>
+<body>
+	<div title="hello">hello</div>
+	<div class="one">display:none</div>
+	<input type="hidden">
+	<div class="two">visibility:hidden</div>
+	<div class="three">opacity:0</div>
+</body>
+</html>

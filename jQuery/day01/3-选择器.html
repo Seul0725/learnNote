@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.outer{
+			border:1px solid blue;
+			overflow: hidden;
+			float: left;
+			margin: 10px;
+		}
+		.inner{
+			border:1px solid red;
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var $result = $('.outer');
+			var $result = $('.outer>.inner');
+			var $result = $('.one+');
+			var $result = $('.one~');
+			var $result = $('.outer .inner:first');
+			var $result = $('.outer .inner:last');
+			//选取奇数位置上的元素，从0开始
+			var $result = $('.outer .inner:odd');
+			//选取偶数位置上的元素，从0开始
+			var $result = $('.outer .inner:even');
+			//选择索引
+			var $result = $('.outer .inner:eq(2)');
+			//索引小于2
+			var $result = $('.outer .inner:lt(2)');
+			//索引大于2
+			var $result = $('.outer .inner:gt(2)');
+			//除了索引小于2的
+			var $result = $('.outer .inner:not(:lt(2))');
+			//选择后代中所有的标题元素
+			var $result = $('.outer :header');
+			//获取内容中包含o的元素
+			var $result = $(".outer :contains('o')");
+			console.log($result);
+			// $result.css('background','coral');
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+		<div class="inner one"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"><h4>inner</h4></div>
+		<div style="overflow: hidden;">
+			<div class="inner"></div>
+		</div>
+		<h2>hello</h2>
+		<h4>world</h4>
+	</div>
+	<div class="outer">
+		<div class="inner"></div>
+		<div class="inner one"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+	<div class="outer">
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){	
+			$("form :checkbox").click(function(event){
+				var arr = [];	
+				var $result = $("form :checkbox:checked");
+				// console.log($result);
+				//1.获取内部DOM，获取DOM对应的value属性值
+				for(var i=0;i<$result.length;i++){
+					arr.push($result[i].value);
+				}
+				console.log(arr);
+				//2.将result转成数组，再映射出value属性
+				/*var result = Array.prototype.slice.call($result);
+				arr = result.map(function(item){
+					return item.value;
+				});*/
+				// console.log(arr);
+				//3.可以使用jQuery对象提供的map方法，将value映射出来
+				/*$arr = $result.map(function(index,item){
+					// return item.value;
+					return $(item).val();
+				});
+				arr = Array.prototype.slice.call($arr);*/
+				// console.log(arr);
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="">
+		<div>
+			<input type="text">
+		</div>
+		<div>
+			<input type="checkbox" value="1">
+			<input type="checkbox" value="2">
+			<input type="checkbox" value="3">
+		</div>
+	</form>
+</body>
+</html>

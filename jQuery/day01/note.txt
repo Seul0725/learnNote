@@ -1,0 +1,20 @@
+jQuery函数的参数：
+	1.函数
+		$(function(){});
+		文档加载完毕之后执行function里面的代码
+	2.选择器字符串
+		$('div');
+		$('.one');
+		$('#one');
+		$('#one .one');//后代选择器
+		$('#one>*').eq(2);//等于eq
+		返回的是jQuery对象，类数组对象，存放的是DOM节点
+	3.DOM节点
+		$(div);返回jQuery对象，将DOM节点转换为jQuery对象
+	4.HTML字符串
+		$('<span>hello</span>');创建对应的节点，并且返回jQuery对象
+
+将DOM节点转换为jQuery对象：
+	$(DOM节点);
+将jQuery对象转换为DOM节点：
+	$('div')[0];

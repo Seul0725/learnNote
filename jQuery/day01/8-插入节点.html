@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.outer{
+			border:1px solid red;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var $newSpan = $("<span>world</span>"); 
+			// console.log($newSpan);
+			//将$newSpan追加到outer中最为最后一个孩子
+			$(".outer").append($newSpan);
+			//克隆节点 浅复制不复制事件，深复制复制事件，都可以复制子节点
+			// var $clone = $newSpan.clone();
+
+			////////////////////////////////////
+			//将$newSpan追加到outer中最为第一个孩子
+			// $(".outer").prepend($clone);
+			$(".outer").prepend($newSpan);
+			//$newSpan作为兄弟节点追加到outer之后
+			// $(".outer").after($newSpan);
+			//$newSpan作为兄弟节点追加到outer之前
+			// $(".outer").before($newSpan);
+		});
+	</script>
+</head>
+<body>
+	<div class="outer"><span>hello</span></div>
+	<div class="outer"><span>hello</span></div>
+</body>
+</html>

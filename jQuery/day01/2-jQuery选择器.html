@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		div:last-child{
+			width: 200px;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		/*$(function(){
+			console.log($('div')[0]);//<div></div>
+			console.log($('div').eq(0));//k.fn.init [div.one, prevObject: k.fn.init(2)]返回一个类数组，只含有一个元素。
+		});*/
+		//在文档加载完毕之后执行
+		$(document).ready(function(){
+			//jQuery中的事件，给div绑定点击事件
+			console.log($('div'));
+			//给所以选择的div绑定了click事件
+			$('div').click(function(event){
+				// alert(1);
+				console.log(this);//this代表的是DOM节点
+			});
+				//样式操作
+			/*$('div').css("background","red");
+			$('div').css("margin","10px");*/
+			$('div').css({
+				backgroundColor:"red",
+				margin:"10px"
+			});
+			//获取css属性的值 如果选中多个div，则返回第一个
+			console.log($('div').css("width"));
+		});
+
+	</script>
+</head>
+<body>
+	<div class="one">hello</div>
+	<div class="two">world</div>
+</body>
+</html>

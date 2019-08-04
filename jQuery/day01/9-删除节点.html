@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除节点</title>
+	<style>
+		.outer{
+			border:1px solid blue;
+			/*overflow: hidden;*/
+			float: left;
+			margin: 10px;
+		}
+		.inner{
+			border:1px solid red;
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			$(".inner").click(function(){
+				alert(1);
+			});
+			var $result = $(".outer .inner:first-child");
+			console.log($result);
+			var $result = $(".outer .inner:contains('one')");
+			console.log($result);
+			//remove移除元素内部一切，包括绑定的事件及相关jQuery数据
+			// var $rm = $result.remove();
+			//detach保留绑定的事件及相关jQuery数据
+			// var $rm = $result.detach();
+			// var $rm = $result.detach(":first");
+			// console.log($rm);
+			// $(".outer").append($rm);
+			// $(".outer").empty();
+			// $($result).remove();
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">one</div>
+		<div class="inner">two</div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+	<div class="outer">
+		<div class="inner">one</div>
+		<div class="inner">two</div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+</body>
+</html>
