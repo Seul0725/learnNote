@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//$("div")选择多个时，使用html()获取内部的内容，拿到的第一个div的内容
+			//text()获取的是所有文本内容
+			console.log($("div").html());
+			console.log($("div").text());
+			//.html()设置时，会给选择的元素每一个都设置相应html内容
+			//text()设置也是给每个选中的元素设置文本
+			// $("div").html("<h2>hello</h2>");
+			// $("div").text("<h2>hello</h2>");
+			//val()获取也是会得到选中的第一个
+			console.log($("input").val());
+			// console.log($("input")[0].value);
+			$("input").val("宇宙大魔王");
+			//获取每一个选中元素的html
+			/*$("div").html(function(index,item){
+				//index 索引
+				//item html值
+				console.log(index,item);
+			});*/
+			$("div").each(function(index,item){
+				//index 索引
+				//item DOM节点
+				console.log(index,item);
+				console.log($(item).html());
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" value="zs">
+	<input type="text" value="ls">
+	<div><span>one</span></div>
+	<div><span>two</span></div>
+	<div><span>three</span></div>
+</body>
+</html>

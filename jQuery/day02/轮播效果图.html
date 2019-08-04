@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container{
+			text-align:center;
+			margin:20px auto;
+			width: 550px;
+			height: 350px;
+			background-color: yellowgreen;
+			padding: 5px;
+		}
+		.box{
+			margin:15px auto;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var arr = ["images/p1.jpeg","images/p2.jpeg","images/p3.jpeg","images/p4.jpeg","images/p5.jpeg","images/p6.jpeg","images/p7.jpeg"];
+			$("button").each(function(index,item){
+				$(item).mouseover(function(){
+					$(this).css("background","grey");
+					$("img").attr("src",arr[index]);
+				});
+				$(item).mouseout(function(){
+					$(this).css("background","#E1E1E1");
+				})
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		<button>6</button>
+		<button>7</button>
+		<div class="box"><img src="images/p1.jpeg" width="500px" height="280px"></div>
+	</div>
+</body>
+</html>

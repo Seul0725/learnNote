@@ -1,0 +1,48 @@
+/*公共的样式*/
+*{
+	margin: 0;
+	padding: 0;
+}
+header,nav,img,article{
+	display: block;
+}
+html,body{
+	height: 100%;
+}
+ul,li{
+	list-style: none;
+}
+/*首页的样式*/
+/*头部的样式*/
+header{
+	height: 60px;
+	background-color: teal;
+}
+/*体部样式*/
+article.sc-body{
+	background-color: tan;
+	height: calc(100% - 60px);
+	display: flex;
+}
+.sc-body nav{
+	width: 180px;
+	/*flex-basis: 180px;*/
+	background-color: coral;
+	text-align: center;
+}
+.sc-body nav li{
+	cursor:pointer;
+	line-height: 50px;
+}
+.sc-body nav li:hover{
+	color: teal;
+}
+.sc-body .content{
+	flex:1;
+	background-color: yellowgreen; 
+}
+
+
+
+
+

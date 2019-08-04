@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//用body代理button
+			// $("body").on("click","button",{id:1001},function(event,a,b){
+			$("body").on("click","button",function(event){
+				// alert(1);
+				console.log(event);
+				// console.log(event,a,b);
+			});
+			/*$("body").delegate("button","click",function(event){
+				// alert(1);
+				console.log(event);
+			});*/
+			//事件解绑
+			// $("body").off("click","button");
+			//模拟事件执行 自动触发事件
+			$("button").trigger("click",[1,2]);
+
+		});
+	</script>
+</head>
+<body>
+	<button>点击我</button>
+</body>
+</html>

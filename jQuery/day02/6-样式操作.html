@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.normal{
+			width: 100px;
+			height: 100px;
+		}
+		.red{
+			background-color: red;
+		}
+		.blue{
+			background-color: blue;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//添加类
+			// $("div").addClass('red');
+			// $("div").removeClass('red');
+			$("button").click(function(){
+				// $("div").toggleClass('blue');
+				if($("div").hasClass("red")){
+					$("div").removeClass('red');
+					$("div").addClass('blue');
+				}else{
+					$("div").removeClass('blue');
+					$("div").addClass('red');
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<button>切换类</button>
+	<div class="normal red">hello</div>
+</body>
+</html>

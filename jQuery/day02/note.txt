@@ -1,0 +1,13 @@
+jQuery事件
+	1.$("button").click(function(){});
+	2.使用bind和unbind绑定与解绑
+		$("button").bind("click",function(){});
+		$("button").ubind("click",function(){});
+	3.使用on和off绑定与解绑
+		$("button").on("click",function(){});
+		$("button").off("click",function(){});
+
+	事件代理
+		#######
+		$("body").on("click","button",function(){});
+		$("body").delegate("button","click",function(){});

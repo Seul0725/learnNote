@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//点击新增或者修改，改变div文本内容
+			$("button").bind("click",function(event){
+				//event.data= `123`;
+				/*console.log(1);
+				console.log(event);*/
+				//如果点击了新增按钮
+				// console.log(event.data);
+				//$(DOM).html()
+				//$(DOM).text()
+				//获取button的文本
+				if($(event.target).text()=="新增"){
+					$("div").text("新增学生信息");
+				}else{
+					$("div").text("修改学生信息");
+				}
+			});
+			function handle(){
+				console.log(1);
+			}
+			$("button").click(handle);
+			//解绑
+			// $("button").unbind();
+			// $("button").unbind("click");
+			// $("button").unbind("click",handle);
+
+			$("button").bind({
+				click:function(){},
+				mouseup:function(){}
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<button>新增</button>
+	<button>修改</button>
+	<div>标题</div>
+</body>
+</html>

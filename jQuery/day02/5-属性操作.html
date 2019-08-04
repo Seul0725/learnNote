@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			// console.log($("div").attr("title"));
+			// console.log($("div").attr("data-id"));
+			// console.log($("input").attr("checked"));//checked
+			// console.log($("input").prop("checked"));//true
+			// console.log($("div").prop("title"));
+			// console.log($("div").prop("data-id"));//undefined
+			//使用attr操作正常属性及自定义属性，使用prop操作布尔属性
+			//设置属性值
+			// $("div").attr("title","world");
+			// $("div").attr("data-id","1002");
+			// $("input").attr("checked",false);
+			// $("div").prop("title","world");
+			// $("div").prop("data-id","1002");
+			// $("input").prop("checked",false);
+			// console.log($("input").prop("checked"));
+			//删除属性
+			// $("div").removeAttr("title");
+			// $("div").removeAttr("data-id");
+			// $("input").removeAttr("checked");
+			$("div").prop("demo","11");
+			console.log($("div"));
+			$("div").removeProp("demo");
+			console.log($("div"));
+		});
+	</script>
+</head>
+<body>
+	<div title="hello" data-id="1001">hello</div>
+	<input type="checkbox" checked />复选框默认被选中
+</body>
+</html>

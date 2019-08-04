@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: coral;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			$(".hide").click(function(){
+				// $("div").hide(3000);
+				// $("div").fadeOut(3000);
+				$("div").slideUp(3000);
+			});
+			$(".show").click(function(){
+				// $("div").show(3000);
+				// $("div").fadeIn(3000);
+				//淡入到某个透明度停止
+				// $("div").fadeTo(3000,0.5);
+				$("div").slideDown(3000);
+			});
+			$(".toggle").click(function(){
+				// $("div").toggle(3000);
+				// $("div").fadeToggle(3000);
+				$("div").slideToggle(3000);
+			});
+			$(".own").click(function(){
+				$("div").animate({
+					// width:"300px",
+					width:300,
+					// height:"200px",
+					height:200,
+					// marginTop:"100px"
+					marginTop:100
+				},3000);
+			});
+			$(".stop").click(function(){
+				$("div").stop(true,true);
+				// $("div").finish();
+			});
+		});
+	</script>
+</head>
+<body>
+	<button class="hide">隐藏</button>
+	<button class="show">显示</button>
+	<button class="toggle">切换</button>
+	<button class="own">自定义动画</button>
+	<button class="stop">结束动画</button>
+	<div>hello</div>
+</body>
+</html>
