@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>bootstrap</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		[class*="col-md"]{
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border:1px solid rgba(86,61,124,.2);
+			/*background-color: rgba(86,61,124,.15);*/
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- 栅格布局 -->
+		<div class="row text-center">
+			<div class="col-md-4 bg-warning">hello</div>
+			<div class="col-md-4 bg-info">world</div>
+			<div class="col-md-4 bg-danger">nice</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-3 bg-primary">hello</div>
+			<div class="col-sm-6 col-md-9 bg-success">hello</div>
+		</div>
+		<div class="visible-sm">
+			<div>显示</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 bg-success">hello</div>
+			<div class="col-md-offset-1 col-md-5 bg-primary">hello</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 bg-danger col-md-push-9">col-md-3</div>
+			<div class="col-md-9 bg-warning col-md-pull-3">col-md-9</div>
+		</div>
+	</div>
+</body>
+</html>
