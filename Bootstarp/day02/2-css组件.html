@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		body{
+			overflow-x: hidden;
+		}
+		.info-div{
+			position:absolute;
+			top:0;
+			right: -125px;
+			/*display: none;*/
+			opacity: 0;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$(".btn-danger").click(function(){
+				// $(".info-div").removeClass("hide");
+				// $(".info-div").fadeIn(1000);
+				$(".info-div").animate({
+					right:10,
+					opacity:1
+				},500);
+			});
+			setTimeout(function(){
+				$(".info-div").fadeOut(1000,function(){
+					$(".info-div").css({
+						right:-125,
+						opacity:0,
+						display:"block",
+					});
+				});
+			}, 1000)
+			
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="well">
+			<button class="btn btn-default">
+				<span class="glyphicon glyphicon-camera"></span> 上传图片
+			</button>
+			<br><br>
+			<div class="alert alert-warning alert-dismissable">
+				<button class="close" type="button" data-dismiss="alert"><span>&times;</span></button>
+				 <strong>Warning!</strong> Better check yourself, you're not looking too good.
+			</div>
+			<button class="btn btn-danger">删除</button>
+		</div>
+	</div>
+	<!-- 右边的提示框 -->
+	<div class="info-div" >
+		<div class="alert alert-success alert-dismissable">
+			<button class="close" type="button" data-dismiss="alert"><span>&times;</span></button>
+			 <strong>删除成功!</strong>
+		</div>
+	</div>
+</body>
+</html>
