@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: skyblue;
+		}
+		canvas{
+			display: block;
+			margin:50px auto;
+			animation:myani 2s linear alternate infinite;
+		}
+		@keyframes myani{
+			0%{
+				transform: scale(1);
+				transform: translateX(-200px);
+			}
+			50%{
+				transform: scale(1.5);
+			}
+			100%{
+				transform: scale(0.2);
+				transform: translateX(200px);
+			}
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			context.beginPath();
+			context.arc(200,200,150,0,Math.PI*2);
+			context.closePath();
+			context.fill();
+			context.beginPath();
+			context.arc(200,190,155,0,Math.PI,true);
+			context.closePath();
+			context.fillStyle = '#f00';
+			context.fill();
+			context.beginPath();
+			context.arc(200,210,155,0,Math.PI);
+			context.closePath();
+			context.fillStyle = '#fff';
+			context.fill();
+			context.beginPath();
+			context.arc(200,200,50,0,Math.PI*2);
+			context.closePath();
+			context.fillStyle = '#000';
+			context.fill();
+			context.beginPath();
+			context.arc(200,200,40,0,Math.PI*2);
+			context.closePath();
+			context.fillStyle = '#fff';
+			context.fill();
+			context.beginPath();
+			context.arc(200,200,30,0,Math.PI*2);
+			context.closePath();
+			context.stroke();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

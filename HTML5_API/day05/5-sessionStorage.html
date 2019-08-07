@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sessionStorage</title>
+	<script>
+		/*console.log(sessionStorage);
+		console.log(localStorage);*/
+		//存储数据
+		sessionStorage.setItem('name', 'zhangsan');
+		sessionStorage.setItem('age', 12);
+		sessionStorage.setItem('obj', JSON.stringify({name:'zhangsan',age:12}));
+		//获取数据
+		var age = sessionStorage.getItem('age');
+		var obj = sessionStorage.getItem('obj');
+		console.log(age);
+		console.log(JSON.parse(obj));
+		console.log(sessionStorage.key(1));
+		console.log(sessionStorage.length);
+		//获取localStorage中的数据
+		console.log(localStorage.getItem('gender'));
+	</script>
+</head>
+<body>
+	<!-- JWT token验证 令牌 -->
+
+</body>
+</html>

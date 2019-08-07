@@ -1,0 +1,4 @@
+ztree 
+	1.ztree的配置对象
+	2.ztree绑定的DOM节点
+	3.显示的数据
