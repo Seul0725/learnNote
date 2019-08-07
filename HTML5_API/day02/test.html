@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			context.fillStyle = 'coral';
+			context.strokeStyle = 'skyblue';
+			context.lineWidth = 2;
+			context.fillRect(0,0,100,200);
+			context.strokeRect(100,0,100,200);
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

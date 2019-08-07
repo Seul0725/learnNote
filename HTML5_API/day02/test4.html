@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>曲线</title>
+	<style>
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			context.beginPath();
+			context.moveTo(0,0);
+			// context.bezierCurveTo(200,0,400,200,400,400);
+			context.quadraticCurveTo(400,0,400,400);
+			context.closePath();
+			// context.strokeStyle = 'coral';
+			// context.stroke();
+			context.fillStyle = 'cyan';
+			context.fill();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

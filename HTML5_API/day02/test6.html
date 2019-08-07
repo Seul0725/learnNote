@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变</title>
+	<style>
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			context.beginPath();
+			context.arc(50,50,50,0,Math.PI*2);
+			context.closePath();
+			var gradient = context.createRadialGradient(50,50,25,50,50,50);
+			gradient.addColorStop(0,'red');
+			gradient.addColorStop(1,'blue');
+			context.fillStyle = gradient;
+			context.fill();
+			
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

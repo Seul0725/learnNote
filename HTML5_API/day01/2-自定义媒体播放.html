@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义媒体播放</title>
+	<script>
+		window.onload = function(){
+			//获取button绑定事件
+			var btnDiv = document.getElementById('btn-div');
+			var video = document.getElementsByTagName('video')[0];
+			var toggle = document.getElementById('toggle');
+			toggle.onclick = function(){
+				console.log(video.paused);
+				// video.paused?video.play():video.pause();
+				if(video.paused){
+					video.play();
+					this.innerText = "暂停~";	
+				}else{
+					video.pause();
+					this.innerText = "播放~";	
+				}
+			}
+			btnDiv.onclick = function(event){
+				target = event.target;
+				var text = target.innerText;
+				switch(text){
+					case "播放":
+					video.play();
+					break;
+					case "暂停":
+					video.pause();
+					break;
+					case "快进":
+					//video.currentTime当前播放时间
+					// console.log(video.currentTime);
+					video.currentTime += 10;
+					break;
+					case "快退":
+					video.currentTime -= 10;
+					break;
+					case "2倍数":
+					video.playbackRate = 2;
+					break;
+					case "0.5倍数":
+					video.playbackRate = 0.5;
+					break;
+					case "音量+":
+					video.volume += 0.1;
+					break;
+					case "音量-":
+					video.volume -= 0.1;
+					break;
+				}
+			}
+			//keydown事件
+			document.onkeydown = function(event){
+				//键盘码
+				// console.log(event.keyCode);
+				if(event.keyCode==13){
+					video.play();
+				}
+				if(event.keyCode==32){
+					video.pause();
+				}
+				if(event.keyCode==38){
+					video.volume += 0.1;
+				}
+				if(event.keyCode==40){
+					video.volume -= 0.1;
+				}
+				if(event.keyCode==37){
+					video.currentTime -= 10;
+				}
+				if(event.keyCode==39){
+					video.currentTime += 10;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="btn-div">
+		<button>播放</button>
+		<button>暂停</button>
+		<button id="toggle">切换</button>
+		<button>快进</button>
+		<button>快退</button>
+		<button>2倍数</button>
+		<button>0.5倍数</button>
+		<button>音量+</button>
+		<button>音量-</button>
+	</div>
+	<br>
+	<video src="../media/1.mp4" controls volume="0.6"></video>
+</body>
+</html>

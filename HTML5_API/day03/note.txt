@@ -1,0 +1,21 @@
+拖放API 
+	拖放元素
+		是一个可拖放元素，img和a默认是可拖放元素
+		div设置成可拖放元素，draggable = 'true'
+		拖放事件
+			dragstart 拖放开始
+			drag 正在拖放中
+			dragend 拖放结束
+	目标元素  div.parent
+		放置拖放元素位置的元素
+		设置可拖放的目标元素：
+			在dragover事件内，阻止默认行为
+		//在火狐下，div是可以放置拖放元素的
+		//在谷歌底下，div不可以放置拖放元素
+		处理兼容
+		放置事件
+			dragenter 进入目标元素的事件
+			dragover 在目标元素内部移动
+			drag 放置事件
+	拖放事件顺序
+	dragstart->drag->dragenter->dragover->drag->-dragend

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 350px;
+			height: 233px;
+			margin:10px;
+			border:1px solid #ccc;
+			position: relative;
+		}
+		.big{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			top:0;
+			left: 360px;
+			border:1px solid #ccc;
+			overflow: hidden;
+			display: none;
+		}
+		.small{
+			position: relative;
+		}
+		.glass{
+			width: 100px;
+			height: 100px;
+			background-color: rgba(255,255,0,0.4);
+			position: absolute;
+			top: 0;
+			left: 0;
+			cursor: move;
+			display: none;
+		}
+		.box img{
+			vertical-align: top;
+		}
+		.big img{
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var smallBox = document.getElementById('smallBox');
+			var glass = document.getElementById('glass');
+			var bigBox = document.getElementById('bigBox');
+			var box = document.getElementById('box');
+			var bigPic = document.getElementById('bigPic');
+			//鼠标经过小盒子，显示大盒子和放大镜
+			smallBox.onmouseover = function(){
+				bigBox.style.display = 'block';
+				glass.style.display = 'block';
+			}
+			//鼠标移出小盒子，隐藏小盒子和放大镜
+			smallBox.onmouseout = function(){
+				bigBox.style.display = 'none';
+				glass.style.display = 'none';
+			}
+			smallBox.onmousemove = function(event){
+				var st = document.body.scrollTop || document.documentElement.scrollTop;
+				var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+				var event = event || window.event;
+				//pageX,pageY获取鼠标相对于当前页面的坐标，IE8不支持
+				//当有滚轮时，视口区鼠标的坐标clientX，需要加上滚动的距离才为鼠标在页面上的坐标
+				var pageX = event.pageX || event.clientX + sl;
+				var pageY = event.pageY || event.clientY + st;
+				//计算放大镜的位置
+				var targetX = pageX - box.offsetLeft - glass.offsetWidth/2;
+				var targetY = pageY - box.offsetTop - glass.offsetHeight/2;
+				if(targetX<0){
+					targetX = 0;
+				}
+				if(targetY<0){
+					targetY = 0;
+				}
+				if(targetX>smallBox.offsetWidth - glass.offsetWidth){
+					targetX = smallBox.offsetWidth - glass.offsetHeight;
+				}
+				if(targetY>smallBox.offsetHeight - glass.offsetHeight){
+					targetY=smallBox.offsetHeight - glass.offsetHeight
+				}
+				glass.style.left = targetX + 'px';
+				glass.style.top = targetY + 'px';
+				var bigMoveX = bigPic.offsetWidth - bigBox.offsetWidth;
+				var smallMoveX = smallBox.offsetWidth - glass.offsetWidth;
+				var bigMoveY = bigPic.offsetHeight - bigBox.offsetHeight;
+				var smallMoveY = smallBox.offsetHeight - glass.offsetHeight;
+				var rateX = bigMoveX/smallMoveX;
+				var rateY = bigMoveY/smallMoveY;
+				bigPic.style.left = -rateX*targetX+'px';
+				bigPic.style.top = -rateY*targetY+'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="small" id="smallBox">
+			<img src="../images/hand.jpeg" alt="" width="350px">
+			<div class="glass" id="glass"></div>
+		</div>
+		<div class="big" id="bigBox">
+			<img src="../images/hand.jpeg" alt="" id="bigPic">
+		</div>
+	</div>
+</body>
+</html>

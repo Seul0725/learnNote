@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 350px;
+			height: 230px;
+			margin:10px;
+			position: relative;
+			border:1px solid #ccc;
+			
+		}
+		#bigBox{
+			position: absolute;
+			top: 0;
+			left: 360px;
+			border:1px solid #ccc;
+			display: none;
+		}
+		#mask{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			cursor: move;
+			opacity: 0.5;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var box = document.getElementById('box');
+			var smallBox = document.getElementById('smallBox');
+			var context1 = smallBox.getContext('2d');
+			var mask = document.getElementById('mask');
+			var context2 = mask.getContext('2d');
+			var bigBox = document.getElementById('bigBox');
+			var context3 = bigBox.getContext('2d');
+			//绘制小盒子背景图
+			var image = new Image();
+			image.src = '../images/hand.jpeg';
+			image.onload = function(){
+				context1.drawImage(image,0,0,350,230);
+			}
+			//绘制网格背景图
+			var image2 = new Image();
+			image2.src = '../images/网格_01.png';
+			image2.onload = function(){
+				context2.drawImage(image2,0,0,100,100);
+			}
+			box.onmousemove = function(event){
+				mask.style.display = 'block';
+				bigBox.style.display = 'block';
+				var st = document.body.scrollTop || document.documentElement.scrollTop;
+				var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+				var event = event || window.event;
+				var pageX = event.pageX || event.clientX + sl; 
+				var pageY = event.pageY || event.clientY + st; 
+				var targetX = pageX - box.offsetLeft - mask.offsetWidth/2; 
+				var targetY = pageY - box.offsetTop - mask.offsetHeight/2; 
+				if(targetX < 0){
+					targetX = 0;
+				}
+				if(targetY < 0){
+					targetY = 0;
+				}
+				if(targetX > smallBox.offsetWidth - mask.offsetWidth){
+					targetX = smallBox.offsetWidth - mask.offsetWidth;
+				}
+				if(targetY > smallBox.offsetHeight - mask.offsetHeight){
+					targetY = smallBox.offsetHeight - mask.offsetHeight;
+				}
+				mask.style.left = targetX + 'px';
+				mask.style.top = targetY + 'px';
+				context3.clearRect(0,0,400,400);
+				context3.drawImage(smallBox,targetX,targetY,100,100,0,0,400,400);
+			}
+			box.onmouseout = function(){
+				mask.style.display = 'none';
+				bigBox.style.display = 'none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<canvas id="smallBox" width="350px" height="230px"></canvas>
+		<canvas id="mask" width="100px" height="100px"></canvas>
+		<canvas id="bigBox" width="400px" height="400px"></canvas>
+	</div>
+</body>
+</html>

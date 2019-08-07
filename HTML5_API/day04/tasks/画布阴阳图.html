@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		canvas{
+			display: block;
+			margin:50px auto;
+			animation-name: myani;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-duration: 3s;
+		}
+		@keyframes myani{
+			from{
+				transform: rotate(0);
+			}
+			to{
+				transform: rotate(360deg);
+			}	
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			context.beginPath();
+			context.arc(200,200,200,0,Math.PI*2);
+			context.closePath();
+			context.fill();
+			context.beginPath();
+			context.arc(100,200,100,0,Math.PI,true);
+			context.arc(200,200,200,Math.PI,0,true);
+			context.arc(300,200,100,0,Math.PI);
+			context.closePath();
+			context.fillStyle = '#fff';			
+			context.fill();
+			context.beginPath();
+			context.arc(100,200,20,0,Math.PI*2);
+			context.closePath();
+			context.fillStyle = '#000';
+			context.fill();
+			context.beginPath();
+			context.arc(300,200,20,0,Math.PI*2);
+			context.closePath();
+			context.fillStyle = '#fff';
+			context.fill();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

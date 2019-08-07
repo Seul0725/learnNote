@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个拖放元素/多个目标元素</title>
+	<style>
+		body{
+			height: 500px;
+			border:1px solid green;			
+		}
+		.parent{
+			height: 130px;
+			border:1px solid red;
+			margin:10px;
+		}
+		.child{
+			width: 100px;
+			height: 100px;
+			border:1px solid blue;
+			margin: 10px;
+			float: left;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//获取拖放元素
+			var childs = document.getElementsByClassName('child');
+			//将一个类数组对象转成数组，返回一个数组
+			childs = Array.from(childs);
+			//获取目标元素
+			var parents = document.getElementsByClassName('parent');
+			parents = Array.from(parents);
+
+			//绑定事件
+			childs.forEach(function(item){
+				item.ondragstart = ds;
+			});
+			parents.forEach(function(item){
+				item.ondragover = dov;
+				item.ondrop = dr;
+			});
+			//给body设置成放置元素
+			document.body.ondragover = dov;
+			document.body.ondrop = dr;
+
+
+			//事件处理程序的说明
+			//dragstart
+			function ds(event){
+				var dt = event.dataTransfer;
+				dt.setData('id', this.id);
+				//设置鼠标样式
+				dt.effectAllowed = 'move';//link/copy
+			}
+			//dragover
+			function dov(event){
+				event.preventDefault();
+				event.dataTransfer.dropEffect = 'move';
+			}
+			//drop
+			function dr(event){
+				var dt = event.dataTransfer;
+				var id = dt.getData('id');
+				var dom = document.getElementById(id);
+				this.appendChild(dom);
+				//阻止冒泡，防止给parent防置的时候，放在body中
+				event.stopPropagation();
+				//火狐底下出现多选项卡，阻止默认行为
+				event.preventDefault();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div draggable="true" class="parent" ></div>
+	<div draggable="true" class="parent"></div>
+	<div draggable="true" class="child" id="one">1</div>
+	<div draggable="true" class="child" id="two">2</div>
+	<div draggable="true" class="child" id="three">3</div>
+	<div draggable="true" class="child" id="four">4</div>
+	<div draggable="true" class="child" id="five">5</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图像</title>
+	<style>
+		canvas{
+			border:1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			var image = new Image();
+			image.src = "images/hand.jpeg";
+			image.onload = function(){
+				context.drawImage(image,0,0,100,100);
+			}
+			//放大镜 
+			//image 鼠标滑过，获取鼠标所在的点(clientX screenX)，获取左上角点。方形区域，放大。
+			//裁切
+			/*context.beginPath();
+			context.arc(100,50,50,0,Math.PI*2);
+			context.closePath();
+			// context.fill();
+			context.clip();
+			image.src = "images/hand.jpeg";
+			image.onload = function(){
+				context.drawImage(image,50,0,100,100);
+			}*/
+			//绘制文本
+			context.font = '30px sans-serif';
+			// context.strokeText("hello",100,100);
+			context.fillText("hello",100,100);
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变</title>
+	<style>
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			context.beginPath();
+			context.moveTo(0,0);
+			context.lineTo(100,100);
+			context.closePath();
+			var gradient = context.createLinearGradient(0,50,100,50);
+			gradient.addColorStop(0,'red');
+			gradient.addColorStop(1,'blue');
+			// context.fillStyle = gradient;
+			// context.fillRect(0,0,100,100);
+			context.strokeStyle = gradient;
+			context.stroke();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

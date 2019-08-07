@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var div = document.getElementById('one');
+			div.ondragstart = function(event){
+				event.dataTransfer.setData("id",this.id);
+				event.effectAllowed = 'link';
+				console.log(1);
+			}
+			function dov(event){
+				event.preventDefault();
+				event.dataTransfer.dropEffect = 'link';
+			}
+			function dr(event){
+				var id = event.dataTransfer.getData("id");
+				var dom = document.getElementById(id);
+				this.appendChild(dom);
+				console.log(1);
+			}
+			document.body.ondragover = dov;
+			document.body.ondrop = dr;
+		}
+	</script>
+</head>
+<body>
+	<div id="one" draggable="true"></div>
+	<div style="background-color: blue"></div>
+</body>
+</html>

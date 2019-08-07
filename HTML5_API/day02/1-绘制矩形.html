@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RECT</title>
+	<style>
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			//获取2d上下文对象
+			var context = canvas.getContext('2d');
+			context.fillStyle = 'coral';
+			context.fillRect(0,0,100,200);//默认黑色
+			context.strokeStyle = 'tan';
+			//设置边框线的宽度
+			// context.lineWidth = 1;
+			context.strokeRect(100,205,100,100);//默认黑色
+			context.strokeStyle = 'blue';
+			context.strokeRect(205,100,100,100);
+			context.strokeStyle = 'teal';
+			context.strokeRect(100,100,100,100);
+			context.strokeStyle = 'green';
+			context.strokeRect(205,205,100,100);
+			context.clearRect(25,25,50,150);
+			context.clearRect(175,175,50,50);
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

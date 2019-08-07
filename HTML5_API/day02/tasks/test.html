@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+		}
+		.box {
+			width:350px;
+			height:233px;
+			margin:10px;
+			border:1px solid #ccc;
+			position:relative;
+		}
+		.big {
+			width:400px;
+			height:400px;
+			position:absolute;
+			top:0;
+			left:360px;
+			border:1px solid #ccc;
+			overflow:hidden;
+			display:none;
+		}
+		.mask {
+			width:175px;
+			height:175px;
+			background:rgba(255,255,0,0.4);
+			position:absolute;
+			top:0;
+			left:0;
+			cursor:move;
+			display:none;
+		}
+		.small {
+			position:relative;
+		}
+		.box img {
+			vertical-align:top;
+		}
+		#bigBox img {
+			position:absolute;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var smallBox = document.getElementById('smallBox');
+			var mask = document.getElementById('mask');
+			var bigBox = document.getElementById('bigBox');
+			var box = document.getElementById('box')
+			var bigPic = document.getElementById('bigPic')
+			//鼠标经过小盒子，显示大盒子
+			smallBox.onmouseover = function() {
+			bigBox.style.display = "block";
+			mask.style.display = "block";
+
+			}
+
+			smallBox.onmouseout = function() {
+			bigBox.style.display = "none";
+			mask.style.display = "none";
+			}
+			smallBox.onmousemove = function(event) {
+			//谷歌支持body，火狐支持element
+			var st = document.body.scrollTop || document.documentElement.scrollTop;
+			var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+			//遮罩跟随鼠标
+			var event = event || widow.event;
+			var pageX = event.pageX || event.clientX + st;
+			var pageY = event.pageY || event.clientY + sl;
+			//计算mask的位置
+			// var boxX = ;
+			// var boxY =  ;
+			var targetX = pageX - box.offsetLeft - mask.offsetWidth / 2;
+			var targetY = pageY - box.offsetTop - mask.offsetHeight / 2;
+			//限制mask移动范围
+			if (targetX < 0) {
+			    targetX = 0;
+			}
+			// if(targetX > 175){
+			// 	targetX = 175;
+			// }
+			if (targetY < 0) {
+			    targetY = 0;
+			}
+			// if(targetY > 175){
+			// 	targetY = 175;
+			// }
+
+			if (targetX > smallBox.offsetWidth - mask.offsetWidth) {
+			    targetX = smallBox.offsetWidth - mask.offsetWidth;
+			}
+
+			if (targetY > smallBox.offsetHeight - mask.offsetHeight) {
+			    targetY = smallBox.offsetHeight - mask.offsetHeight;
+			}
+			//console.log(smallBox.offsetWidth-mask.offsetWidth);
+			// console.log(mask.offsetWidth);
+			//console.log(targetX);
+			mask.style.left = targetX + "px";
+			mask.style.top = targetY + "px";
+			//按照比例移动大图
+			var bigToMove = bigPic.offsetWidth - bigBox.offsetWidth;
+			var maskToMove = smallBox.offsetWidth - mask.offsetWidth;
+			var rate = bigToMove / maskToMove;
+			bigPic.style.left = -rate * targetX + "px";
+			bigPic.style.top = -rate * targetY + "px";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<div id="smallBox" class="small ">
+		    <img src="../images/hand.jpeg" width="350">
+		    <div id="mask" class="mask"></div>
+		</div>
+		<div id="bigBox" class="big">
+		    <img src="../images/hand.jpeg" alt="" id="bigPic">
+		</div>
+	</div>
+</body>
+</html>
