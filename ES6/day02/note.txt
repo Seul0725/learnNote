@@ -1,0 +1,63 @@
+NodeJS的介绍
+	运行js的平台
+	语言，有一些内置的模块，http,fs,querystring,path,url...
+	npm包管理工具
+	第三方的包或者模块进行添加删除或者更新
+		cnpm
+			npm install -g cnpm
+		yarn
+		    npm install -g yarn	
+	npm install 
+		下载项目依赖的所有包，参照package,json下载
+Webpack工具的介绍 打包工具
+	Webpack工具，一切皆模块，js,css,vue文件都是模块
+	模块化开发思想
+	打包 npm run build
+ES6的介绍
+	ES6转ES5的步骤（升级版）
+		1.初始化Node项目
+			npm init -y
+			package.json
+		2.安装依赖
+			npm install --save-dev babel-cli babel-preset-latest
+		3.编写babel配置文件，项目根目录底下
+			.babelrc中配置{"presets":["latest"]}
+		4.编写ES6的代码
+		5.编写脚本指令
+			package.json中
+			{
+				"scripts":{
+					...,
+					"start":"babel src --out-dir dist"
+				}
+			}
+		6.转换
+			npm run start
+
+ES6基础知识
+	let关键字
+		特性：
+		1.块级作用域
+		2.变量声明不提升
+		3.暂时性死区
+		4.不能重复声明
+	const关键字
+		特性：
+		1.块级作用域
+		2.变量声明不提升
+		3.暂时性死区
+		4.不能重复声明
+		5.在声明时初始化
+		6.不可更改值
+
+
+解构
+	交换数据
+		let x=1;
+		let y=2;
+		[x,y] = [y,x];
+	函数参数的赋值 
+		function test([a=0,b=0]){}
+		test([1,2])
+
+
