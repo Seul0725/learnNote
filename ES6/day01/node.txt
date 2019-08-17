@@ -1,0 +1,123 @@
+NodeJS环境中支持绝大部分的ES6的功能
+
+ES6新特性
+	语法方面
+		1.let 变量
+		2.const 常量
+		3.(形参)=>{函数体} 箭头函数
+	功能方面
+		对对象、函数、数组进行了功能性的扩展 
+		复制一个对象
+			let obj = {
+				name:'zd',
+				age:13
+			}
+			//复制对象
+			1.JSON.parse(JSON.stringify(obj));
+			2.遍历对象
+			let obj2 = {};
+			for(var key in obj){
+				obj2[key] = obj[key];
+			}
+			3.ES6方式
+			let obj2 = {};
+			//返回值也是obj2
+			obj2 = Object.assign(obj2,obj,obj3,obj4);
+			------------------------------
+			Set Map Class
+			用类去创建实例 构造器
+			用类去实现继承 extends
+			Promise 承诺对象
+
+NodeJS
+	环境，后台语言
+		封装Google V8引擎，js解析器
+		npm包管理工具 node package manager
+		cnpm淘宝镜像
+
+		yarn 包管理工具 React推荐使用
+
+NodeJS内置模块的介绍
+	NodeJS后台语言
+	内置模块：
+		url 网址模块
+		http 服务器模块，使用此模块可以搭建服务器
+		path 文件的路径模块
+		querystring 查询字符串模块
+
+	第三方：express框架，基于http
+
+
+* 使用Babel工具将ES6的代码转换为ES5的代码。
+  Babel工具的使用
+  	1.全局安装babel工具
+  		cnpm install -g babel-cli
+  	2.局部安装转换规则包
+  		cnpm install babel-preset-latest
+  		cnpm install babel-preset-es2015
+  		cnpm install babel-preset-env
+  	3.编写babel配置文件
+  		项目根目录 .babelrc
+  		{
+  			'presets':['latest']
+  		}
+  	4.编写ES6的代码
+  	5.转换(语法)
+  		babel a.js
+babel工具只转换语法层次
+babel-polyfill垫片，将ES6的功能性新特性转换为ES5的代码
+
+第三方包
+	package.json中记录了项目的相关信息
+		dependencies 产品阶段的依赖 依赖关系
+		devDependencies 项目开发阶段的依赖 环境依赖或测试依赖
+		cnpm intsall --save babel-cli
+		dependencies{
+			babel-cli:''
+		}
+		cnpm intsall --save-dev babel-cli
+		devDependencies{
+			babel-cli:''
+		}
+
+babel命令
+	babel文件名
+	将转换的结果输出到终端
+	label 文件名 --out-file 文件名
+		babel 1-a.js --out-file 2.js
+	babel 目录名 --out-dir 目录名
+	将一个目录名中的所有文件转换为es5，输出到第二个目录底下的同名文件
+
+
+
+	package.json 在项目底下执行cnpm init --yes，快速生成package.json文件
+
+
+项目升级
+	1.package.json    cnpm init -y
+	2.下载了项目依赖
+		cnpm install --save-dev babel-cli
+		cnpm install --save-dev babel-preset-latest	
+	3.创建.babelrc
+	4.新增了指令
+	 在package.json的
+	 "scripts":{
+	 	"start":"babel src --out-dir dist"
+	 }
+	 5.编写src底下的es6代码
+	 6.转换
+	 	babel src --out-dir dist
+	 	cnpm run start/npm run start
+	 	npm run dev
+	 	cnpm run dev 
+项目升级的好处：
+	1.可以在package.json中读取到需要的信息，项目依赖的包以及如何启动项目
+	2.拿到没有给node_modules的项目，需要先打开package.json，看看项目的依赖。去下载执行 cnpm install 下载项目中的所以依赖
+
+
+
+let特点
+	1.代码块内的局部变量{}
+	2.let声明的变量不提升
+	3.暂时性死区 在let声明前使用let
+	4.不可重复声明
