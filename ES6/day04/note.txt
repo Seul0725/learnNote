@@ -1,0 +1,104 @@
+对象的扩展
+    属性的简写
+    方法的简写
+    属性名表达式
+    Object.is()
+    Object.assign(obj,obj2)
+    Object.getPrototypeOf(obj)
+    Object.setPrototypeOf()
+    Object.keys(obj)
+    Object.values(obj)
+    Object.entries(obj)
+函数的扩展
+    name
+    length
+    函数参数解构
+        function test([a,b]){}
+        test([1,2]);
+        function test({a,b}){}
+        test({1,2})
+    rest参数
+        function test(...tail){}
+        tail --> [1,2,3]
+        test(1,2,3)
+    箭头函数
+数组的扩展
+    Array.from() //类数组，set/map有Iterator接口的数据结构类型
+    Array.of() 将一组值转为数组
+    arr.find((item,index,arr)=>{}) 返回第一个符合条件的元素，没有返回undefined
+    arr.findIndex((item,index,arr)=>{}) 返回第一个符合条件的元素索引，没有返回-1
+    arr.includes() 判断数组中是否含有某个数，返回布尔
+    arr.fill() 填充数组
+    arr.keys() 返回key值迭代器对象 使用for-of去遍历
+    arr.values() 返回value值迭代器对象 使用for-of去遍历
+    arr.entries() 返回键值对的迭代器对象 使用for-of去遍历
+
+--------------------------------------------------------------------------------------------
+Set集合     Map集合
+对比
+Array       Object
+
+new Set()  new Map()
+增删改查以及遍历
+set.add(value) 添加数据  
+set.delete(value) 删除数据
+set.clear() 清空数据
+set.has() 
+set.keys()
+set.values()
+set.entries()
+set.forEach((item)=>{})
+
+map.set(key,value) 添加数据
+其他方法与Set一致
+
+set
+    值，没有重复的数据
+map 
+    键值对，键值可以是任何数据类型的
+
+-------------------------------------------------------------------------------
+模块
+    js文件，在某个js文件中导出一部分数据，在另外一个js文件中，如果想要使用数据，先导入再使用
+    NodeJS模块
+        module.exports.a = 1;
+        require('./a');
+    ES6模块
+        export 导出
+        export default 导出
+        import 导入
+
+--------------------------------------------------------------
+Promise
+    承诺机制，
+    对象里放置的是异步处理函数。(容器)
+        如果异步执行成功，调用resolve函数
+        如果异步执行失败，调用reject函数
+    let p = new Promise((resolve,reject)=>{
+        //resolve,reject 函数
+        //异步操作
+        $.ajax({
+            url:'',
+            method:'',
+            success(res){
+                resolve(res);
+            },
+            error(err){
+                reject(err);
+            }
+        })
+    });
+    p.then((response)=>{
+        //内部异步执行成功的处理
+        //DOM
+    });
+    p.catch((err)=>{
+        //内部异步执行失败的处理
+        //提示用户出错了
+    });
+
+    axios库 http库  ajax+ Promise
+        axios.get('url').then((res)=>{}).catch((err)=>{});
+    //想在纯NodeJS中想要用jQuery
+        jsdom 虚假的dom节点
+        jquery
