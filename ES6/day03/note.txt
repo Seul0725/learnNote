@@ -1,0 +1,71 @@
+let 
+const 
+	1.有块级作用域
+	2.变量声明不提升
+	3.暂时性死区
+	4.不可重复声明
+	5.在声明时初始化
+	6.不可修改值
+解构
+	数组解构
+		let [a,b=2] = [1];
+	对象解构
+		let {name:aName='jerry',age:aAge} = {
+			name:'tom',
+			age:18
+		}
+	字符串的解构
+		let {toString} = '123';
+		let [a,b] = '123';
+	数值和布尔值的解构
+		let {toString} = 123;
+		let {toString} = true;
+	使用：
+		函数变量的赋值
+			function test([a,b]){}
+			test([1,2])
+			function test({a,b}){}
+			test({1,2})
+	扩展运算符 ...
+		...[1,2,3]
+		...'hello'
+	rest参数 ...变量 放在函数的形参中
+	 	接收剩余的实参
+	 	function test(...tail){}
+	 	test(1,2,3);
+	 	let [a,...b] = [1,2,3,4]
+
+对象的扩展
+	属性简写
+		let name = 'tom';
+		let obj = {name};
+	方法简写
+		let obj = {sayName(){}};
+	属性名的表达式
+		let name = 'tom';
+		let obj = {
+			[name]:'zs',
+			或者[name+'hello']:'zs'
+		}
+
+Object.is() ===
++0 === -0 true
+NaN === NaN false
+isNaN()
+Object.is(+0,-0);//false
+Object.is(NaN,NaN);//true
+
+对象浅复制 浅拷贝
+	引用的复制
+		let obj = {};
+		let obj2 = obj;
+对象深复制
+	复制内部的内容
+	let obj = {name:'zs'};
+	let obj2 = {name:'zs'};
+	obj2 = JSON.parse(JSON.stringify(obj));
+	//Object.assign(target,...tail) 对象的合并
+	function myClone(target,...tail){
+		return target;
+	}
+	myClone({name:'zs'},{age:18});
