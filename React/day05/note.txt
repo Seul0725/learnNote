@@ -1,0 +1,75 @@
+CSS局部导入
+    1.更改Webpack配置
+        yarn eject
+            config/webpack.config.js
+                css导入配置 423行左右添加
+        使用
+            import style from 'style.css';
+            className={style.one}
+            id={style.two}
+    2.使用Sass
+        yarn add node-sass
+        cnpm install --save node-sass
+        使用Sass    
+            import './a.scss';
+            className="one"
+路由 react-router-dom
+    yarn add react-router-dom
+    import {BrowserRouter,HashRouter,Route,Link,Switch,NavLink} from 'react-router-dom';
+
+路由跳转
+    API跳转
+        this.props.history.push('/course')
+    NavLink
+        <NavLink to="/course"></NavLink>
+    Link
+        <Link to="/course"></Link>
+    a标签
+        <a href="#/course"></a>
+路由传参
+    API传参 
+     this.props.location.test
+     this.props.location.state
+    查询字符串传参
+     this.props.location.search
+    动态路由
+     <Route path="/sc/:id" component={Course}></Route>
+     <NavLink to="/sc/2">NavLink跳转-动态路由</NavLink>
+     获取
+     this.props.match.params.test
+
+Ant Design UI库
+
+全局导入
+
+按需导入
+
+高级配置
+    1.yarn add antd
+    2.yarn add react-app-rewired customize-cra
+    3.修改package.json文件
+    /* package.json */
+    "scripts": {
+        -   "start": "react-scripts start",
+        +   "start": "react-app-rewired start",
+        -   "build": "react-scripts build",
+        +   "build": "react-app-rewired build",
+        -   "test": "react-scripts test",
+        +   "test": "react-app-rewired test",
+        }
+    4.在项目根目录创建一个 config-overrides.js 用于修改默认配置。
+    5.yarn add babel-plugin-import
+    6.修改config-overrides.js
+    const { override, fixBabelImports } = require('customize-cra');
+    module.exports = override(
+        fixBabelImports('import', {
+            libraryName: 'antd',
+            libraryDirectory: 'es',
+            style: 'css',
+        }),
+    );
+    7.按需引入
+    import { Button } from 'antd';
+    8.重启yarn start
+
+自定义主题

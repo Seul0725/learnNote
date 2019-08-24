@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        class MyTable extends React.Component{
+            render(){
+                return (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>公司</th>
+                                <th>地点</th>
+                            </tr>    
+                        </thead>
+                        <tbody>
+                            {
+                                this.props.company.map((item,index)=>{
+                                    return (
+                                        <tr key={index}>
+                                            <MyTd com={item}/>
+                                        </tr>
+                                    )
+                                })
+                            }   
+                        </tbody>    
+                    </table>
+                );
+            }
+        }
+        
+        class MyTd extends React.Component{       
+            render(){
+                const {com} = this.props;
+                return (
+                    <React.Fragment>
+                        <td>{com.name}</td>
+                        <td>{com.place}</td>
+                    </React.Fragment>
+                );
+            }
+        }
+        let company = [{
+            name:'阿里',
+            place:'杭州'
+        },{
+            name:'阿里',
+            place:'杭州'
+        },{
+            name:'阿里',
+            place:'杭州'
+        },{
+            name:'阿里',
+            place:'杭州'
+        }];        
+        ReactDOM.render(<MyTable company={company}/>,document.getElementById("app"));
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>

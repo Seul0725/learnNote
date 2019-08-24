@@ -1,0 +1,13 @@
+.TestSass {
+    span {
+        color: red;
+    }
+
+    span:nth-child(2) {
+        color: blue;
+    }
+
+    .one {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,19 @@
+1.安装vscode
+  https://code.visualstudio.com
+2.安装插件
+  Reactjs code snippets
+  React Redux ES6 Snippets
+  React-Native/React/Redux snippets for es6/es7
+  JavaScript (ES6) code snippets(es6代码片段)
+  美化插件  One Dark Pro(atom风格主题)
+  文件图标插件 vscode-icons(文件图标)
+  npm Intellisense(对package.json内中的依赖包的名称提示)
+  Path Intellisense(文件路径补全)
+  CSS Modules(对使用了css modules的jsx标签的类名补全和跳转到定义位置)
+3.使用vscode的控制台
+4.在vscode中连接git
+
+
+
+
+

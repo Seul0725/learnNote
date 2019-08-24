@@ -1,0 +1,20 @@
+refs引用参照的使用
+    this.refs对象，里面存放着该组件内的所有引用
+    <div ref="str"></div>
+    <MyForm  ref="form"/>
+    <div ref={()=>{}}>在组件挂载后卸载时调用
+
+表单的双向数据绑定
+    将数据模型中的数据展示在表单控件中
+    当表单控件发生更改时，修改数据模型中的数据
+
+yarn eject
+
+Sass css的脚本语言
+    SassScript经过编译以后转为CSS语言，是CSS的预处理工具
+    .sass
+    .scss 可以写CSS语言.div{.one{}}
+安装Sass环境
+    yarn add node-sass
+    .scss
+    import './a.scss';
