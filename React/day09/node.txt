@@ -1,0 +1,18 @@
+1. 安装redux react-redux
+2. 创建文件 
+    store
+    reducer index.js
+    actionCreator文件
+
+    页面
+        Article.jsx
+
+处理异步
+    1.
+    2.import {applyMiddleware,createStore} from 'redux';
+    ...
+
+
+ES6 Generator函数
+function* test(){}
+test().next();
