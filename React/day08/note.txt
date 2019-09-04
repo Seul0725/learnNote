@@ -1,0 +1,23 @@
+Redux 同步操作
+
+在redux中使用异步，需要借助中间件：redux-thunk,redux-saga(ES6-Generator函数)
+
+react-redux
+    类组件->函数组件
+    用户写的组件->函数组件->无状态组件->没有state
+
+UI组件和容器组件
+    使用react-redux的connect方法将一个UI组件内部包裹一个容器组件，UI组件如果想要获取数据，props去获取
+直接将数据仓库绑定到根组件，内部的子组件都可以使用
+
+React UI库，框架
+    想要状态管理机制，使用Redux
+    想要异步交互，使用Redux-think或Redux-saga
+    想要简化代码，获取业务逻辑与UI组件分离，使用react-redux
+技术栈
+    react
+    redux
+    react-think react-saga
+    react-redux
+
+connet(mapStateToProps,mapDispatchToProps)(UICom)
